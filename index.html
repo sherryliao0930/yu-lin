@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>余霖｜體制內改革者</title>
+<meta name="description" content="余霖：臺北市政府教育局聘任督學，前臺北市立大直高中、天母國中校長，教育部教學卓越金質獎、木鐸獎得主。數十年投身教育改革、入學制度、數學教育與實驗教育。">
+<meta property="og:title" content="余霖｜體制內改革者">
+<meta property="og:description" content="臺北市政府教育局聘任督學・前大直高中校長・木鐸獎得主">
+<meta property="og:type" content="profile">
+<meta name="theme-color" content="#f5efe2">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23f5efe2'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' font-family='serif' font-weight='900' fill='%23a8792a'%3E霖%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --paper:#f5efe2; --paper-2:#efe6d3; --ink:#24201a; --ink-2:#4a4237; --muted:#857a68;
+  --gold:#b48a3c; --gold-deep:#8a6424; --line:rgba(150,120,70,.22);
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{
+  font-family:var(--serif); color:var(--ink); background:var(--paper);
+  background-image:
+    radial-gradient(ellipse at 15% 0%, rgba(255,252,244,.9), transparent 55%),
+    radial-gradient(ellipse at 100% 40%, rgba(230,215,185,.45), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .38 0 0 0 0 .25 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  line-height:1.8; letter-spacing:.02em; overflow-x:hidden;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:72px 0 64px;overflow:hidden}
+.hero .brush-main{position:absolute;left:calc(50% - 20px);top:50%;width:min(760px,56vw);transform:translateY(-62%) rotate(-9deg);pointer-events:none;opacity:0;animation:sweep 1.6s .2s cubic-bezier(.2,.7,.2,1) forwards}
+.hero .brush-sub{position:absolute;left:calc(50% + 80px);top:50%;width:min(470px,36vw);transform:translateY(70%) rotate(-6deg);pointer-events:none;opacity:0;animation:sweep 1.4s .7s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes sweep{from{opacity:0;clip-path:inset(0 100% 0 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
+.hero-text{position:relative;z-index:2;width:100%}
+.eyebrow{color:var(--gold-deep);letter-spacing:.6em;font-size:clamp(13px,1.6vw,16px);font-weight:500}
+.name{font-weight:900;font-size:clamp(84px,17vw,180px);line-height:1.05;letter-spacing:.12em;margin:18px 0 10px;
+  text-shadow:0 1px 0 rgba(255,255,255,.6)}
+.title{font-size:clamp(18px,2.4vw,24px);letter-spacing:.32em;color:var(--ink-2);font-weight:500}
+.tagline{margin-top:22px;color:var(--muted);font-size:clamp(14px,1.7vw,16px);letter-spacing:.14em;line-height:2}
+.tagline span{white-space:nowrap}
+.hero-actions{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{font-family:inherit;font-size:15px;letter-spacing:.2em;padding:12px 26px;border-radius:2px;cursor:pointer;text-decoration:none;
+  border:1px solid var(--gold);color:var(--gold-deep);background:rgba(255,252,244,.55);transition:.25s}
+.btn:hover{background:var(--gold);color:#fffaf0}
+.btn.solid{background:linear-gradient(120deg,#9c7228,#d4ad5c 45%,#a87c2e);color:#fffaf0;border-color:transparent;box-shadow:0 6px 18px rgba(140,100,30,.22)}
+.btn.solid:hover{filter:brightness(1.06)}
+.scroll-cue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);color:var(--muted);font-size:12px;letter-spacing:.4em;z-index:2}
+.scroll-cue::after{content:"";display:block;width:1px;height:34px;margin:8px auto 0;background:linear-gradient(var(--gold),transparent)}
+
+/* ---------- Section nav ---------- */
+.secnav{position:sticky;top:0;z-index:20;background:rgba(245,239,226,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.secnav ul{list-style:none;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:10px clamp(16px,5vw,56px);max-width:1080px;margin:0 auto}
+.secnav ul::-webkit-scrollbar{display:none}
+.secnav a{display:block;white-space:nowrap;padding:6px 14px;color:var(--ink-2);text-decoration:none;font-size:14px;letter-spacing:.12em;border-radius:20px;transition:.2s}
+.secnav a.on{background:var(--ink);color:var(--paper)}
+
+/* ---------- Common ---------- */
+section.block{padding:clamp(64px,10vw,110px) 0 0}
+.head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,44px)}
+.head h2{font-weight:900;font-size:clamp(28px,4.4vw,42px);letter-spacing:.1em;line-height:1.3}
+.head small{color:var(--muted);letter-spacing:.2em;font-size:14px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:30px 10px 26px;text-align:center;position:relative}
+.stat+.stat::before{content:"";position:absolute;left:0;top:24%;bottom:24%;width:1px;background:var(--line)}
+.stat b{display:block;font-size:clamp(38px,5.6vw,56px);font-weight:900;line-height:1.1;
+  background:linear-gradient(115deg,#8a6424 0%,#d9b765 38%,#f3dc98 50%,#b48a3c 64%,#8a6424 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat b sup{font-size:.4em;vertical-align:super;margin-left:2px}
+.stat span{font-size:14px;letter-spacing:.16em;color:var(--ink-2)}
+.stat em{display:block;font-style:normal;font-size:12px;color:var(--muted);letter-spacing:.08em;margin-top:2px}
+
+/* current */
+.current{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px)}
+.cur{position:relative;padding:28px 26px 24px;background:rgba(255,252,244,.62);border:1px solid var(--line);overflow:hidden}
+.cur::before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:linear-gradient(90deg,#a87c2e,#e8cc80,#a87c2e)}
+.cur .org{font-size:clamp(17px,1.9vw,19px);font-weight:700;letter-spacing:.06em;line-height:1.55}
+.cur .role{margin-top:10px;color:var(--gold-deep);font-weight:700;letter-spacing:.3em;font-size:15px}
+.cur .yr{color:var(--muted);font-size:13px;letter-spacing:.1em}
+
+/* honours with brush numerals */
+.honours{list-style:none}
+.honours li{display:grid;grid-template-columns:132px 1fr auto;align-items:center;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.badge{position:relative;width:120px;height:58px}
+.badge svg{position:absolute;inset:0;width:100%;height:100%}
+.badge i{position:absolute;left:20px;top:50%;transform:translateY(-52%);font-style:normal;font-weight:900;font-size:28px;color:#2a2116;letter-spacing:.02em;text-shadow:0 1px 0 rgba(255,240,200,.6)}
+.honours .h-t{font-size:clamp(17px,2.2vw,21px);font-weight:500;letter-spacing:.08em}
+.honours .h-y{color:var(--muted);font-size:14px;letter-spacing:.1em;white-space:nowrap}
+
+/* timeline */
+.cols{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,5vw,64px)}
+.sub{font-size:14px;letter-spacing:.4em;color:var(--gold-deep);font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sub::after{content:"";flex:1;height:1px;background:var(--line)}
+.edu{list-style:none}
+.edu li{padding:14px 0;border-bottom:1px dashed var(--line)}
+.edu b{font-weight:700;font-size:18px;letter-spacing:.06em;display:block}
+.edu span{color:var(--muted);font-size:14px;letter-spacing:.1em}
+.tl{list-style:none;position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:5px;top:10px;bottom:10px;width:1px;background:linear-gradient(var(--gold),rgba(180,138,60,.15))}
+.tl li{position:relative;padding:10px 0 12px}
+.tl li::before{content:"";position:absolute;left:-26px;top:20px;width:11px;height:11px;border-radius:50%;background:var(--paper);border:2px solid var(--gold)}
+.tl li.key::before{background:radial-gradient(circle at 35% 35%,#f6e2a2,#b48a3c)}
+.tl .y{font-size:13px;color:var(--gold-deep);letter-spacing:.14em}
+.tl .t{font-size:17px;font-weight:500;letter-spacing:.05em}
+.tl .t b{font-weight:700}
+
+/* domains */
+.domain-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.domain-tabs button{font-family:inherit;font-size:14px;letter-spacing:.12em;padding:8px 16px;border:1px solid var(--line);background:rgba(255,252,244,.6);color:var(--ink-2);border-radius:22px;cursor:pointer;transition:.2s}
+.domain-tabs button.on{border-color:var(--gold);background:linear-gradient(120deg,#9c7228,#d4ad5c 50%,#a87c2e);color:#fffaf0}
+.domain-tabs button em{font-style:normal;font-size:12px;opacity:.75;margin-left:4px}
+.domain{display:none;animation:fade .5s ease}
+.domain.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.domain-intro{display:flex;gap:18px;align-items:center;margin-bottom:10px}
+.domain-intro .big{font-size:clamp(22px,3vw,28px);font-weight:900;letter-spacing:.1em}
+.domain-intro p{color:var(--muted);font-size:14px;letter-spacing:.06em}
+.items{list-style:none}
+.items li{display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:baseline;padding:15px 2px;border-bottom:1px solid var(--line)}
+.items .it{font-size:16.5px;letter-spacing:.04em;line-height:1.65}
+.items .it small{display:inline-block;color:var(--gold-deep);font-size:14px;margin-left:8px;letter-spacing:.1em;font-weight:500}
+.items .iy{color:var(--muted);font-size:13.5px;letter-spacing:.08em;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* footer card */
+footer{margin-top:clamp(80px,12vw,130px);padding:clamp(56px,8vw,90px) 0 48px;position:relative;overflow:hidden;border-top:1px solid var(--line);background:linear-gradient(rgba(239,230,211,.4),rgba(239,230,211,.9))}
+footer .brush-foot{position:absolute;right:-10%;top:4%;width:min(560px,80vw);opacity:.45;transform:rotate(-7deg);pointer-events:none}
+.card{position:relative;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.card h3{font-size:clamp(30px,5vw,48px);font-weight:900;letter-spacing:.16em;line-height:1.2}
+.card p{color:var(--ink-2);letter-spacing:.14em;margin-top:8px}
+.card .quote{margin-top:22px;color:var(--muted);font-size:14px;letter-spacing:.12em;line-height:2}
+.qr{background:#fffaf0;padding:14px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(120,90,40,.12);text-align:center}
+.qr #qrbox{width:150px;height:150px}
+.qr #qrbox img,.qr #qrbox canvas{width:150px!important;height:150px!important}
+.qr small{display:block;margin-top:8px;font-size:12px;letter-spacing:.3em;color:var(--muted)}
+.foot-actions{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+.copy{margin-top:48px;text-align:center;font-size:12px;letter-spacing:.2em;color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--ink);color:var(--paper);padding:10px 22px;font-size:14px;letter-spacing:.12em;opacity:0;transition:.3s;pointer-events:none;z-index:50;border-radius:2px}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:820px){
+  .hero{align-items:flex-start;padding-top:14svh}
+  .hero .brush-main{left:auto;right:-20%;top:auto;bottom:6%;width:100vw;transform:rotate(-10deg)}
+  .hero .brush-sub{left:auto;right:0;top:auto;bottom:2%;width:60vw;transform:rotate(-7deg)}
+  .current{grid-template-columns:1fr}
+  .cols{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3)::before{display:none}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media (max-width:560px){
+  .hero{align-items:flex-start;padding-top:12svh}
+  .hero .brush-main{left:auto;right:-26%;top:auto;bottom:9%;width:118vw;transform:rotate(-11deg)}
+  .hero .brush-sub{left:auto;right:-4%;top:auto;bottom:4%;width:70vw;transform:rotate(-7deg)}
+  .eyebrow{letter-spacing:.45em}
+  .scroll-cue{display:none}
+  footer .brush-foot{top:1%;right:-24%;width:78vw;opacity:.35}
+  .title{letter-spacing:.2em}
+  .honours li{grid-template-columns:96px 1fr;gap:4px 10px;padding:14px 0}
+  .honours .h-y{grid-column:2}
+  .badge{width:92px;height:46px}
+  .badge i{font-size:22px;left:14px}
+  .items li{grid-template-columns:1fr;gap:2px}
+  .card{grid-template-columns:1fr;justify-items:start}
+  .tl .t{font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .hero .brush-main,.hero .brush-sub{opacity:1}
+  .reveal{opacity:1;transform:none}
+}
+@media print{
+  .secnav,.hero-actions,.foot-actions,.scroll-cue{display:none}
+  .hero{min-height:auto}
+  .domain{display:block!important;page-break-inside:avoid;margin-bottom:24px}
+  .domain-tabs{display:none}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <div class="brush-main" data-brush="hero" data-w="900" data-h="300" data-seed="7"></div>
+  <div class="brush-sub" data-brush="thin" data-w="700" data-h="90" data-seed="21"></div>
+  <div class="wrap hero-text">
+    <div class="eyebrow">體制內改革者</div>
+    <h1 class="name">余霖</h1>
+    <div class="title">臺北市政府教育局　聘任督學</div>
+    <p class="tagline">
+      <span>前臺北市立大直高中校長</span>　<span>前臺北市立天母國中校長</span><br>
+      <span>木鐸獎・教學卓越金質獎・高中校長領導卓越獎</span>
+    </p>
+    <div class="hero-actions">
+      <a class="btn solid" href="#current">認識余霖</a>
+      <button class="btn" type="button" data-share>分享名片</button>
+    </div>
+  </div>
+  <div class="scroll-cue">向下</div>
+</header>
+
+<nav class="secnav" aria-label="章節">
+  <ul>
+    <li><a href="#current">現任</a></li>
+    <li><a href="#honours">榮譽</a></li>
+    <li><a href="#career">學經歷</a></li>
+    <li><a href="#domains">專業貢獻</a></li>
+    <li><a href="#contact">名片</a></li>
+  </ul>
+</nav>
+
+<main class="wrap">
+
+  <section class="block reveal" id="current" style="padding-top:clamp(48px,8vw,80px)">
+    <div class="stats">
+      <div class="stat"><b>19<sup>年</sup></b><span>中學校長</span><em>天母國中・大直高中</em></div>
+      <div class="stat"><b>15<sup>年+</sup></b><span>聘任督學</span><em>民國 100 年迄今</em></div>
+      <div class="stat"><b>14<sup>項</sup></b><span>中央教育委員</span><em>行政院・教育部</em></div>
+      <div class="stat"><b>5<sup>項</sup></b><span>教育榮譽</span><em>含木鐸獎、金質獎</em></div>
+    </div>
+
+    <div class="head" style="margin-top:clamp(56px,8vw,88px)"><h2>現任</h2><small>CURRENT ROLES</small></div>
+    <div class="current" id="currentList"></div>
+  </section>
+
+  <section class="block reveal" id="honours">
+    <div class="head"><h2>得獎榮譽</h2><small>HONOURS</small></div>
+    <ol class="honours" id="honourList"></ol>
+  </section>
+
+  <section class="block reveal" id="career">
+    <div class="head"><h2>學歷與經歷</h2><small>EDUCATION &amp; CAREER</small></div>
+    <div class="cols">
+      <div>
+        <div class="sub">學歷</div>
+        <ul class="edu">
+          <li><b>國立臺灣師範大學</b><span>教育研究所 碩士（74 級）</span></li>
+          <li><b>國立高雄師範大學</b><span>數學系（60 級）</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="sub">經歷</div>
+        <ul class="tl" id="timeline"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal" id="domains">
+    <div class="head"><h2>專業貢獻</h2><small>CONTRIBUTIONS</small></div>
+    <div class="domain-tabs" id="domainTabs" role="tablist"></div>
+    <div id="domainPanels"></div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="brush-foot" data-brush="hero" data-w="900" data-h="260" data-seed="33"></div>
+  <div class="wrap">
+    <div class="card">
+      <div>
+        <h3>余霖</h3>
+        <p>臺北市政府教育局　聘任督學</p>
+        <p class="quote">學校行政・教育改革・入學制度<br>數學教育・實驗教育・校長培育</p>
+        <div class="foot-actions">
+          <button class="btn solid" type="button" data-share>分享這張名片</button>
+          <button class="btn" type="button" id="copyLink">複製連結</button>
+        </div>
+      </div>
+      <div class="qr"><div id="qrbox"></div><small>掃碼認識余霖</small></div>
+    </div>
+    <div class="copy">資料依余霖老師提供之資歷整理・年份為民國紀年</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+/* ================= 資料 ================= */
+const CURRENT = [
+  {org:"臺北市政府教育局", role:"聘任督學", y:"100 年～迄今"},
+  {org:"九九文教基金會", role:"董事", y:"107 年～迄今"},
+  {org:"中華民國學校行政研究學會", role:"理監事", y:"96 年～迄今"},
+];
+const HONOURS = [
+  {t:"教育學術團體 木鐸獎", y:"102 年"},
+  {t:"教育部 高中校長領導卓越獎", y:"94 年"},
+  {t:"教育部 教學卓越金質獎", y:"92 年"},
+  {t:"臺北市行動研究專業論文 特優", y:"93 年"},
+  {t:"臺北市 優秀校長獎", y:"86 年"},
+];
+const TIMELINE = [
+  {y:"100 年～迄今", t:"臺北市政府教育局 <b>聘任督學</b>", key:1},
+  {y:"98～104 年", t:"臺北市立大學 兼任講師"},
+  {y:"95～100 年", t:"翰林出版事業研發處 <b>執行長</b>"},
+  {y:"85～95 年", t:"臺北市立大直高中 <b>校長</b>", key:1},
+  {y:"83～95 年", t:"國立臺北教育大學 兼任講師"},
+  {y:"79～83 年", t:"臺北市立教育大學 兼任講師"},
+  {y:"78～87 年", t:"臺北市國中數學科輔導團 主任輔導員"},
+  {y:"76～85 年", t:"臺北市立天母國中 <b>校長</b>", key:1},
+  {y:"74～75 年", t:"中央警察大學 兼任講師"},
+];
+const DOMAINS = [
+  {k:"教育改革與政策", d:"參與中央與臺北市教育政策的規劃、審議與推動", items:[
+    ["行政院 教育改革推動委員會","委員","92～94 年"],
+    ["教育部 12 年國教專案辦公室","協作委員","106～115 年"],
+    ["教育部 學習領導與學習共同體計畫","委員","101～104 年"],
+    ["教育部 分組合作學習推動委員會","委員","101～103 年"],
+    ["教育部 全國教育發展會議 教育體制之規劃工作小組","",'92 年'],
+    ["教育部 2001 年教育改革之檢討與改進會議工作小組","委員","90 年"],
+    ["教育部 國家教育研究院籌備小組","委員","93～95 年"],
+    ["教育部 師資培育審議委員","","92～94 年"],
+    ["教育部 高級中學法施行細則研修","委員","88～89 年"],
+    ["教育部 普通高級中學綜合活動課程專案小組","委員","92 年"],
+    ["教育部 綜合高中評鑑指導委員會","委員","91～92 年"],
+    ["教育部 教學媒體製作數學領域","委員","95 年"],
+    ["教育部 學習型教育電視節目評選委員會","委員","89 年"],
+    ["教育部 國民中學選修科目數學科課程標準修訂","委員","82～84 年"],
+    ["臺北市教育研究發展中心","指導委員","88～91 年"],
+    ["臺北市教育研究發展中心 執行委員會","委員","93～94 年"],
+    ["臺北市教育審議委員會","委員","90～91；100～101 年"],
+    ["臺北市國民中學學區審議委員會","委員","87～88 年"],
+  ]},
+  {k:"入學制度", d:"見證並參與大學、高中多元入學與國中基測的建制", items:[
+    ["大學入學考試中心","考試委員","90～93 年"],
+    ["教育部 國中基本學力測驗","指導委員","91～93 年"],
+    ["教育部 國中基本學力測驗北一區","主任委員","93～94 年"],
+    ["教育部 高中多元入學方案推動","委員","90～91 年"],
+    ["教育部 高中及高職多元入學方案文宣推動小組","","90.07～90.12"],
+    ["教育部 高中職五專多元入學相關問題因應小組","","91.02～91.07"],
+    ["教育部 國中自學方案綜合評估委員會","執行秘書","85～86 年"],
+    ["臺北市高中多元入學－申請入學委員會","主任委員","89～90 年"],
+    ["臺北市國中自學方案推動委員會","研究發展組組長","80～82 年"],
+    ["臺北市多元入學研究小組","研究員","84～86 年"],
+  ]},
+  {k:"實驗教育", d:"陪伴實驗學校發展課程，推動另類與實驗教育審議", items:[
+    ["新竹縣立竹北實驗高中","課程發展委員","115 年"],
+    ["臺北市立數位實驗高中","課程發展委員","111 年～迄今"],
+    ["臺北市立芳和實驗高中","課程發展委員","107 年～迄今"],
+    ["臺北市公辦實驗教育探索性研究","主持人","107～108 年"],
+    ["臺北市高中教育實驗審議委員會","委員","101～104 年"],
+    ["臺北市另類教育審議委員會","委員","91～93 年"],
+  ]},
+  {k:"數學教育", d:"數學系出身，長年投入課綱、教科書與教學輔導", items:[
+    ["高中數學課程綱要修訂","委員","96 年"],
+    ["國中數學、數學選修教科書","編審委員","84～90 年"],
+    ["國中數學教科書［九年一貫］","主編","89～94 年"],
+    ["國民中學選修科目數學課程標準修訂小組","","82～83 年"],
+    ["臺北市國中數學科輔導團","主任輔導員","78～87 年"],
+    ["國中數學優連升叢書（陳氏圖書公司）","","83 年"],
+    ["國中數學學習錄影帶（牛頓科學教育公司）","","79 年"],
+  ]},
+  {k:"校長培育與遴選", d:"以「師傅校長」身分引領新任校長，並參與各級校長遴選", items:[
+    ["臺北市 校長導入方案","師傅校長召集人",""],
+    ["臺灣師範大學 校長培育班","講座",""],
+    ["政治大學 校長培育班","講座",""],
+    ["臺北市立大學 校長培育班","講座",""],
+    ["臺北市 高中校長遴選・國中校長遴選","委員",""],
+    ["臺北市 國中校長甄選・國中主任甄選","委員",""],
+    ["臺北市 國小校長甄選","委員",""],
+    ["高雄市、臺北縣、宜蘭縣 國中校長甄選","委員",""],
+    ["嘉義市 國中校長遴選","委員",""],
+  ]},
+  {k:"評審與評鑑", d:"擔任各項教育獎項與校務評鑑的評審", items:[
+    ["教育部 高中校長領導卓越獎","評審委員",""],
+    ["臺北市 師鐸獎","評審委員及培訓委員",""],
+    ["臺北市 教學卓越獎","評審委員及培訓委員",""],
+    ["臺北市 優良教師","評審委員",""],
+    ["臺北市 國中優良主任","評審委員",""],
+    ["臺北市 高中校務評鑑・國中校務評鑑","評鑑委員",""],
+    ["臺北市 優質學校","評審委員",""],
+    ["臺北市 教育 111","評審委員",""],
+    ["臺北市 新世代學習空間","評審委員",""],
+    ["臺北市 新文化新精神","評審委員",""],
+    ["臺北市 百大菁英資訊科技應用人才教育獎","評審委員",""],
+  ]},
+  {k:"專業社群", d:"長期帶領學校行政與教育專業團體", items:[
+    ["中華民國學校行政研究學會","理事長","91～95 年"],
+    ["臺北市中等學校校長協會","理事長","93～95 年"],
+    ["中華民國學校行政研究學會","理監事","96 年～迄今"],
+    ["中華民國全國測驗學會","常務理事","90 年～迄今"],
+    ["中華民國學校建築學會","常務理事、理事","87～104 年"],
+    ["加惠心理諮商文教基金會","董事","101～109 年"],
+  ]},
+  {k:"教育出版", d:"將課程理念落實為教材與出版", items:[
+    ["翰林出版事業研發處","執行長","95～100 年"],
+    ["國中數學教科書［九年一貫］","主編","89～94 年"],
+    ["國中數學優連升叢書（陳氏圖書公司）","","83 年"],
+    ["國中數學學習錄影帶（牛頓科學教育公司）","","79 年"],
+  ]},
+];
+
+/* ================= 金色筆刷（SVG 濾鏡繪製） ================= */
+function rand(seed){ let s=seed*9301+49297; return ()=>{ s=(s*9301+49297)%233280; return s/233280; }; }
+function brushPath(w,h,r,thin){
+  // 左粗右尖、略帶弧度的刷痕外形
+  const top=[], bot=[], n=26, mid=h*0.5, amp=thin?h*0.28:h*0.42;
+  for(let i=0;i<=n;i++){
+    const t=i/n, x=w*0.04+t*w*0.92;
+    const taper = thin ? Math.sin(Math.PI*Math.min(1,t*1.15))*0.9+0.1 : (t<0.12? 0.55+t*3.5 : 1-Math.pow((t-0.12)/0.88,2.2)*0.92);
+    const bend = -Math.sin(t*Math.PI*0.9)*h*0.06 - t*h*0.12;
+    top.push([x, mid+bend-amp*taper*(0.9+r()*0.18)]);
+    bot.push([x, mid+bend+amp*taper*(0.75+r()*0.2)]);
+  }
+  let d=`M${top[0][0]},${top[0][1]}`;
+  top.forEach(p=>d+=`L${p[0].toFixed(1)},${p[1].toFixed(1)}`);
+  bot.reverse().forEach(p=>d+=`L${p[0].toFixed(1)},${p[1].toFixed(1)}`);
+  return d+'Z';
+}
+let bid=0;
+function makeBrush(el){
+  const w=+el.dataset.w||600, h=+el.dataset.h||200, seed=+el.dataset.seed||(bid+3), kind=el.dataset.brush;
+  const r=rand(seed), id='g'+(bid++), thin=kind==='thin', small=kind==='badge';
+  const d=brushPath(w,h,r,thin);
+  const disp = small? 9 : thin? 14 : 34;
+  el.innerHTML=`<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="${id}f" x1="0" y1="0" x2="1" y2="0.35">
+      <stop offset="0" stop-color="#b98d3a"/><stop offset=".22" stop-color="#e3c46f"/>
+      <stop offset=".4" stop-color="#c39437"/><stop offset=".58" stop-color="#f1d98f"/>
+      <stop offset=".78" stop-color="#b9893a"/><stop offset="1" stop-color="#d9b866"/>
+    </linearGradient>
+    <filter id="${id}x" x="-6%" y="-40%" width="112%" height="180%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="${small?'.06 .2':'.012 .06'}" numOctaves="4" seed="${seed}" result="edge"/>
+      <feDisplacementMap in="SourceGraphic" in2="edge" scale="${disp}" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feTurbulence type="fractalNoise" baseFrequency="${small?'.01 .5':'.0025 .16'}" numOctaves="2" seed="${seed+5}" result="s1"/>
+      <feColorMatrix in="s1" type="matrix" values="0 0 0 0 1  0 0 0 0 .97  0 0 0 0 .86  0 0 0 3.4 -1.75" result="hl"/>
+      <feComposite in="hl" in2="shape" operator="in" result="hl2"/>
+      <feTurbulence type="fractalNoise" baseFrequency="${small?'.012 .7':'.003 .28'}" numOctaves="2" seed="${seed+9}" result="s2"/>
+      <feColorMatrix in="s2" type="matrix" values="0 0 0 0 .5  0 0 0 0 .34  0 0 0 0 .1  0 0 0 2.6 -1.45" result="dk"/>
+      <feComposite in="dk" in2="shape" operator="in" result="dk2"/>
+      <feTurbulence type="fractalNoise" baseFrequency="${small?'.02 .9':'.004 .5'}" numOctaves="1" seed="${seed+13}" result="s3"/>
+      <feColorMatrix in="s3" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -4 2.9" result="gap"/>
+      <feComposite in="shape" in2="gap" operator="in" result="dry"/>
+      <feMerge><feMergeNode in="dry"/><feMergeNode in="dk2"/><feMergeNode in="hl2"/></feMerge>
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#7a5418" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <path d="${d}" fill="url(#${id}f)" filter="url(#${id}x)"/>
+</svg>`;
+}
+
+/* ================= 渲染 ================= */
+const $=s=>document.querySelector(s);
+$('#currentList').innerHTML=CURRENT.map(c=>`<div class="cur"><div class="org">${c.org}</div><div class="role">${c.role}</div><div class="yr">${c.y}</div></div>`).join('');
+$('#honourList').innerHTML=HONOURS.map((h,i)=>`<li><div class="badge"><div data-brush="badge" data-w="240" data-h="110" data-seed="${40+i*7}" style="position:absolute;inset:0"></div><i>0${i+1}</i></div><div class="h-t">${h.t}</div><div class="h-y">${h.y}</div></li>`).join('');
+$('#timeline').innerHTML=TIMELINE.map(t=>`<li class="${t.key?'key':''}"><div class="y">${t.y}</div><div class="t">${t.t}</div></li>`).join('');
+$('#domainTabs').innerHTML=DOMAINS.map((d,i)=>`<button role="tab" type="button" class="${i?'':'on'}" data-i="${i}">${d.k}<em>${d.items.length}</em></button>`).join('');
+$('#domainPanels').innerHTML=DOMAINS.map((d,i)=>`<div class="domain ${i?'':'on'}" role="tabpanel">
+  <div class="domain-intro"><div class="big">${d.k}</div></div><p style="color:var(--muted);font-size:14px;letter-spacing:.06em;margin-bottom:8px">${d.d}</p>
+  <ul class="items">${d.items.map(([t,r,y])=>`<li><div class="it">${t}${r?`<small>${r}</small>`:''}</div><div class="iy">${y}</div></li>`).join('')}</ul></div>`).join('');
+$('#domainTabs').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  document.querySelectorAll('#domainTabs button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.domain').forEach((p,i)=>p.classList.toggle('on',i==b.dataset.i));
+});
+document.querySelectorAll('[data-brush]').forEach(makeBrush);
+
+/* 進場動畫 */
+const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* 章節導覽高亮 */
+const links=[...document.querySelectorAll('.secnav a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+addEventListener('scroll',()=>{
+  const y=scrollY+120; let cur=-1;
+  secs.forEach((s,i)=>{ if(s.offsetTop<=y) cur=i; });
+  if(innerHeight+scrollY>=document.body.scrollHeight-4) cur=secs.length-1;
+  links.forEach((a,i)=>a.classList.toggle('on',i===cur));
+},{passive:true});
+
+/* 分享・QR */
+const URL_SELF=location.href.split('#')[0];
+const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),1800);};
+async function copy(){ try{ await navigator.clipboard.writeText(URL_SELF); toast('已複製連結'); }catch(e){ prompt('請複製這個連結',URL_SELF); } }
+document.querySelectorAll('[data-share]').forEach(b=>b.addEventListener('click',async()=>{
+  if(navigator.share){ try{ await navigator.share({title:'余霖｜體制內改革者',text:'臺北市政府教育局聘任督學・前大直高中校長 余霖',url:URL_SELF}); }catch(e){} }
+  else copy();
+}));
+$('#copyLink').addEventListener('click',copy);
+try{ new QRCode($('#qrbox'),{text:URL_SELF,width:300,height:300,colorDark:'#2a2116',colorLight:'#fffaf0',correctLevel:QRCode.CorrectLevel.M}); }catch(e){}
+</script>
+</body>
+</html>
