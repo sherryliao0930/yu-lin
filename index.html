@@ -164,7 +164,7 @@ section.block{padding:clamp(64px,10vw,110px) 0 0}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .domain-intro{display:flex;gap:18px;align-items:center;margin-bottom:6px}
 .domain-intro .big{font-size:clamp(27px,3.4vw,33px);font-weight:900;letter-spacing:.08em}
-.domain-desc{position:relative;margin:6px 0 14px;padding:14px 18px 14px 22px;font-size:19px;font-weight:900;line-height:1.7;letter-spacing:.03em;color:#5a3c0a;background:linear-gradient(90deg,rgba(226,190,110,.38),rgba(226,190,110,.08));border-left:6px solid var(--gold);border-radius:0 6px 6px 0}
+.domain-desc{text-wrap:balance;position:relative;margin:6px 0 14px;padding:14px 18px 14px 22px;font-size:19px;font-weight:900;line-height:1.7;letter-spacing:.03em;color:#5a3c0a;background:linear-gradient(90deg,rgba(226,190,110,.38),rgba(226,190,110,.08));border-left:6px solid var(--gold);border-radius:0 6px 6px 0}
 .items{list-style:none}
 .items li{display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:baseline;padding:16px 2px;border-bottom:1px solid var(--line)}
 .items .it{font-size:20px;font-weight:500;letter-spacing:.02em;line-height:1.65}
@@ -222,6 +222,7 @@ footer{margin-top:clamp(80px,12vw,130px);padding:clamp(56px,8vw,90px) 0 64px;bor
   .foot-actions{gap:8px}
   .foot-actions .btn{flex:1;min-width:0;padding:12px 4px;font-size:16px;letter-spacing:.04em}
   .items .it{font-size:18px}
+  .domain-desc{font-size:17px;padding:12px 12px 12px 16px}
   .items .rd{display:none!important}
   .items .rm{display:inline;color:var(--gold-deep);font-size:17px;font-weight:900;margin-right:12px}
   .ti .t,.ti.key .t{font-size:16.5px;letter-spacing:0}
@@ -511,6 +512,22 @@ $('#domainTabs').addEventListener('click',e=>{
   document.querySelectorAll('.domain').forEach((p,i)=>p.classList.toggle('on',i==b.dataset.i));
 });
 document.querySelectorAll('[data-brush]').forEach(makeBrush);
+
+/* 手機防孤字：會斷成兩行的短句，縮小字體併回一行 */
+function lineCount(el){const r=document.createRange();r.selectNodeContents(el);const tops=new Set();[...r.getClientRects()].forEach(c=>{if(c.width>1)tops.add(Math.round(c.top/4))});return tops.size||1;}
+function lastLineLen(el){const r=document.createRange();r.selectNodeContents(el);const rs=[...r.getClientRects()].filter(c=>c.width>1);if(!rs.length)return 99;const maxTop=Math.max(...rs.map(c=>c.top));const fs=parseFloat(getComputedStyle(el).fontSize);return rs.filter(c=>Math.abs(c.top-maxTop)<4).reduce((a,c)=>a+c.width,0)/fs;}
+function fit(el){
+  el.style.fontSize='';
+  if(lineCount(el)<2) return;
+  const base=parseFloat(getComputedStyle(el).fontSize); let fs=base;
+  while(fs>14.5 && lineCount(el)>1){ fs-=.5; el.style.fontSize=fs+'px'; }
+  if(lineCount(el)>1){ el.style.fontSize=''; }   // 縮到最小仍放不下：維持原大小，讓它在詞組間換行
+}
+const FIT_SEL='.domain.on .domain-desc,.domain.on .items .it,.ti .t,.ec span,.ec b,.cur .org,.honours .h-t .kw,.awards span';
+function fitAll(){ document.querySelectorAll(FIT_SEL).forEach(fit); }
+addEventListener('load',fitAll); document.fonts&&document.fonts.ready.then(fitAll);
+let rz; addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(fitAll,150)});
+document.getElementById('domainTabs').addEventListener('click',()=>requestAnimationFrame(fitAll));
 
 /* 進場動畫 */
 const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.08});
