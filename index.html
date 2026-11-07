@@ -8,7 +8,7 @@
 <meta property="og:title" content="余霖｜體制內改革者">
 <meta property="og:description" content="臺北市政府教育局聘任督學・前大直高中校長・木鐸獎得主">
 <meta property="og:type" content="profile">
-<meta property="og:image" content="https://sherryliao0930.github.io/yu-lin/card.jpg">
+<meta property="og:image" content="https://sherryliao0930.github.io/yu-lin/card.jpg?v=20261107b">
 <meta name="theme-color" content="#f5efe2">
 <meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -164,7 +164,7 @@ section.block{padding:clamp(64px,10vw,110px) 0 0}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .domain-intro{display:flex;gap:18px;align-items:center;margin-bottom:6px}
 .domain-intro .big{font-size:clamp(27px,3.4vw,33px);font-weight:900;letter-spacing:.08em}
-.domain-desc{text-wrap:balance;position:relative;margin:6px 0 14px;padding:14px 18px 14px 22px;font-size:19px;font-weight:900;line-height:1.7;letter-spacing:.03em;color:#5a3c0a;background:linear-gradient(90deg,rgba(226,190,110,.38),rgba(226,190,110,.08));border-left:6px solid var(--gold);border-radius:0 6px 6px 0}
+.domain-desc{position:relative;margin:6px 0 14px;padding:14px 18px 14px 22px;font-size:19px;font-weight:900;line-height:1.7;letter-spacing:.03em;color:#5a3c0a;background:linear-gradient(90deg,rgba(226,190,110,.38),rgba(226,190,110,.08));border-left:6px solid var(--gold);border-radius:0 6px 6px 0}
 .items{list-style:none}
 .items li{display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:baseline;padding:16px 2px;border-bottom:1px solid var(--line)}
 .items .it{font-size:20px;font-weight:500;letter-spacing:.02em;line-height:1.65}
@@ -310,11 +310,11 @@ footer{margin-top:clamp(80px,12vw,130px);padding:clamp(56px,8vw,90px) 0 64px;bor
 <footer id="contact">
   <div class="wrap">
     <div class="head"><h2>電子名片</h2><small>CONTACT</small></div>
-    <figure class="namecard"><img src="namecard.jpg" width="2000" height="1116" alt="余霖名片：體制內改革者，跨域整合・典範轉移，手機 0966-162-649，E-mail jeusdd@gmail.com"></figure>
+    <figure class="namecard"><img src="namecard.jpg?v=20261107b" width="2000" height="1116" alt="余霖名片：體制內改革者，跨域整合・典範轉移，手機 0966-162-649，E-mail jeusdd@gmail.com"></figure>
     <div class="foot-actions">
       <button class="btn solid" type="button" id="saveContact">存入通訊錄</button>
       <button class="btn" type="button" data-share>分享名片</button>
-      <a class="btn" href="namecard.jpg" download="余霖電子名片.jpg">下載名片</a>
+      <a class="btn" href="namecard.jpg?v=20261107b" download="余霖電子名片.jpg">下載名片</a>
     </div>
   </div>
 </footer>
@@ -513,14 +513,14 @@ $('#domainTabs').addEventListener('click',e=>{
 });
 document.querySelectorAll('[data-brush]').forEach(makeBrush);
 
-/* 手機防孤字：會斷成兩行的短句，縮小字體併回一行 */
+/* 手機防孤字：第二行只剩 1–2 字時，縮小字體併回一行；其他正常換行 */
 function lineCount(el){const r=document.createRange();r.selectNodeContents(el);const tops=new Set();[...r.getClientRects()].forEach(c=>{if(c.width>1)tops.add(Math.round(c.top/4))});return tops.size||1;}
-function lastLineLen(el){const r=document.createRange();r.selectNodeContents(el);const rs=[...r.getClientRects()].filter(c=>c.width>1);if(!rs.length)return 99;const maxTop=Math.max(...rs.map(c=>c.top));const fs=parseFloat(getComputedStyle(el).fontSize);return rs.filter(c=>Math.abs(c.top-maxTop)<4).reduce((a,c)=>a+c.width,0)/fs;}
+function lastLineLen(el){const r=document.createRange();r.selectNodeContents(el);const rs=[...r.getClientRects()].filter(c=>c.width>1);if(!rs.length)return 99;const maxTop=Math.max(...rs.map(c=>c.top));const fs=parseFloat(getComputedStyle(el).fontSize);const last=rs.filter(c=>Math.abs(c.top-maxTop)<4);return (Math.max(...last.map(c=>c.right))-Math.min(...last.map(c=>c.left)))/fs;}
 function fit(el){
   el.style.fontSize='';
-  if(lineCount(el)<2) return;
+  if(lineCount(el)!==2 || lastLineLen(el)>2.6) return;   // 只處理「第二行只剩 1–2 字」
   const base=parseFloat(getComputedStyle(el).fontSize); let fs=base;
-  while(fs>14.5 && lineCount(el)>1){ fs-=.5; el.style.fontSize=fs+'px'; }
+  while(fs>13.5 && lineCount(el)>1){ fs-=.5; el.style.fontSize=fs+'px'; }
   if(lineCount(el)>1){ el.style.fontSize=''; }   // 縮到最小仍放不下：維持原大小，讓它在詞組間換行
 }
 const FIT_SEL='.domain.on .domain-desc,.domain.on .items .it,.ti .t,.ec span,.ec b,.cur .org,.honours .h-t .kw,.awards span';
