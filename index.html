@@ -33,12 +33,14 @@ body{
 }
 .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(18px,5vw,56px)}
 /* 重點字：粗體＋淡金底線 */
+.nw{white-space:nowrap}
 .kw{background:linear-gradient(transparent 58%,rgba(226,190,110,.6) 58%,rgba(226,190,110,.6) 94%,transparent 94%);font-weight:900;padding:0 .12em;color:var(--ink)}
 
 /* ---------- Hero ---------- */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:72px 0 64px;overflow:hidden}
 /* 主筆刷：從「典範轉移」右側起筆，由左下往右上一氣刷出 */
 .mt{position:relative;display:inline-flex;align-items:center}
+[data-brush] svg{overflow:visible}
 .mt .bm,.mt .bs,.mt .bs2{position:absolute;z-index:-1;pointer-events:none;opacity:0}
 .mt .bm{left:calc(100% + 6px);bottom:-1.6em;width:min(900px,66vw);transform:rotate(-27deg);transform-origin:0 70%;animation:sweep 1.05s .15s cubic-bezier(.7,0,.2,1) forwards}
 .mt .bs{left:calc(100% + 70px);bottom:-1.2em;width:min(620px,46vw);transform:rotate(-33deg);transform-origin:0 50%;animation:sweep .75s .8s cubic-bezier(.7,0,.2,1) forwards}
@@ -61,7 +63,7 @@ body{
 .tagline{margin-top:20px;color:var(--ink-2);font-size:clamp(17px,1.9vw,19px);letter-spacing:.08em;line-height:2;font-weight:700}
 .tagline span{white-space:nowrap}
 .awards{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
-.awards span{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border:2px solid var(--gold);background:rgba(255,250,236,.9);font-weight:900;font-size:clamp(17px,1.9vw,19px);letter-spacing:.05em;color:var(--ink)}
+.awards span{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border:2px solid var(--gold);background:rgba(255,250,236,.9);font-weight:900;font-size:clamp(17px,1.9vw,19px);letter-spacing:.05em;color:var(--ink)}
 .awards span::before{content:"";width:10px;height:10px;background:linear-gradient(135deg,#e9cc7e,#a77a2a);transform:rotate(45deg);flex:none}
 .hero-actions{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
 .btn{font-family:inherit;font-size:18px;font-weight:900;letter-spacing:.16em;padding:13px 28px;border-radius:3px;cursor:pointer;text-decoration:none;
@@ -70,8 +72,6 @@ body{
 .btn.solid{background-color:#7a5518;color:#fff;border-color:#7a5518;box-shadow:0 6px 18px rgba(110,75,20,.25);
   background-image:linear-gradient(120deg,rgba(255,255,255,0),rgba(255,230,160,.25) 45%,rgba(255,255,255,0))}
 .btn.solid:hover{filter:brightness(1.12)}
-.scroll-cue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);color:var(--ink-2);font-size:15px;letter-spacing:.4em;z-index:2}
-.scroll-cue::after{content:"";display:block;width:2px;height:34px;margin:8px auto 0;background:linear-gradient(var(--gold),transparent)}
 
 /* ---------- Section nav ---------- */
 .secnav{position:sticky;top:0;z-index:20;background:rgba(245,239,226,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
@@ -114,6 +114,7 @@ section.block{padding:clamp(64px,10vw,110px) 0 0}
 .badge svg{position:absolute;inset:0;width:100%;height:100%}
 .badge i{position:absolute;left:20px;top:50%;transform:translateY(-52%);font-style:normal;font-weight:900;font-size:30px;color:#1e160a;letter-spacing:.02em;text-shadow:0 0 6px rgba(255,245,215,.95)}
 .honours .h-t{font-size:clamp(20px,2.3vw,23px);font-weight:900;letter-spacing:.04em;line-height:1.5}
+.honours .h-t .by{margin-right:.8em}
 .honours .h-y{color:var(--ink-2);font-size:18px;font-weight:700;letter-spacing:.04em;white-space:nowrap}
 
 /* timeline：分期＋左右交錯 */
@@ -121,7 +122,6 @@ section.block{padding:clamp(64px,10vw,110px) 0 0}
 .sub::after{content:"";flex:1;height:1px;background:var(--line)}
 .edu2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .ec{position:relative;padding:22px 24px 20px 24px;background:rgba(255,252,244,.9);border:1px solid var(--line);border-left:5px solid var(--gold)}
-.ec .deg{position:absolute;right:16px;top:14px;font-size:15px;font-weight:900;color:#fff;background:#7a5518;padding:2px 12px;border-radius:14px;letter-spacing:.2em}
 .ec b{display:block;font-size:23px;font-weight:900;letter-spacing:.04em}
 .ec span{font-size:18px;color:var(--ink-2)}
 .tl2{position:relative;padding:6px 0 10px}
@@ -155,8 +155,8 @@ section.block{padding:clamp(64px,10vw,110px) 0 0}
 .ti.key.r::after{left:-55px}
 
 /* domains */
-.domain-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
-.domain-tabs button{font-family:inherit;font-size:18px;font-weight:700;letter-spacing:.05em;padding:9px 18px;border:2px solid var(--line);background:rgba(255,252,244,.9);color:var(--ink);border-radius:24px;cursor:pointer;transition:.2s}
+.domain-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px}
+.domain-tabs button{white-space:nowrap;text-align:center;width:100%;font-family:inherit;font-size:18px;font-weight:700;letter-spacing:.05em;padding:9px 18px;border:2px solid var(--line);background:rgba(255,252,244,.9);color:var(--ink);border-radius:24px;cursor:pointer;transition:.2s}
 .domain-tabs button.on{border-color:#7a5518;background:#7a5518;color:#fff}
 .domain-tabs button em{font-style:normal;font-size:15px;opacity:.85;margin-left:5px}
 .domain{display:none;animation:fade .5s ease}
@@ -169,6 +169,7 @@ section.block{padding:clamp(64px,10vw,110px) 0 0}
 .items li{display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:baseline;padding:16px 2px;border-bottom:1px solid var(--line)}
 .items .it{font-size:20px;font-weight:500;letter-spacing:.02em;line-height:1.65}
 .items .it small{display:inline-block;color:var(--gold-deep);font-size:19px;margin-left:10px;letter-spacing:.05em;font-weight:900}
+.items .rm{display:none}
 .items .iy{color:var(--ink-2);font-size:17px;font-weight:700;letter-spacing:.03em;white-space:nowrap;font-variant-numeric:tabular-nums}
 
 /* footer：名片圖 */
@@ -176,7 +177,7 @@ footer{margin-top:clamp(80px,12vw,130px);padding:clamp(56px,8vw,90px) 0 64px;bor
 .namecard{margin:0 auto;max-width:960px;box-shadow:0 18px 50px rgba(90,62,15,.22),0 2px 6px rgba(90,62,15,.12);border-radius:6px;overflow:hidden;background:#f3ecdf}
 .namecard img{display:block;width:100%;height:auto}
 .foot-actions{margin:32px auto 0;display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
-.foot-actions .btn{min-width:200px;text-align:center}
+.foot-actions .btn{min-width:200px;text-align:center;white-space:nowrap}
 .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--ink);color:var(--paper);padding:12px 24px;font-size:18px;letter-spacing:.1em;opacity:0;transition:.3s;pointer-events:none;z-index:50;border-radius:3px}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
@@ -185,33 +186,46 @@ footer{margin-top:clamp(80px,12vw,130px);padding:clamp(56px,8vw,90px) 0 64px;bor
   .hero{align-items:flex-start;padding-top:14svh}
   .current{grid-template-columns:1fr}
   .edu2{grid-template-columns:1fr}
-  .tl2::before{left:18px}
+  .tl2::before{left:14px}
   .era{text-align:left;margin-left:-2px}
-  .ti,.ti.l,.ti.r{width:auto;margin-left:46px;margin-right:0;text-align:left}
-  .ti.l::before,.ti.r::before{left:-28px;right:auto;width:28px;background:linear-gradient(90deg,var(--gold),rgba(176,132,51,.4))}
-  .ti.l::after,.ti.r::after{left:-36px;right:auto}
-  .ti.key.l::after,.ti.key.r::after{left:-39px;right:auto}
+  .ti,.ti.l,.ti.r{width:auto;margin-left:38px;margin-right:0;text-align:left}
+  .ti.l::before,.ti.r::before{left:-22px;right:auto;width:22px;background:linear-gradient(90deg,var(--gold),rgba(176,132,51,.4))}
+  .ti.l::after,.ti.r::after{left:-31px;right:auto}
+  .ti.key.l::after,.ti.key.r::after{left:-34px;right:auto}
   .stats{grid-template-columns:repeat(2,1fr)}
   .stat:nth-child(3)::before{display:none}
   .stat:nth-child(n+3){border-top:1px solid var(--line)}
 }
 @media (max-width:560px){
   .hero{align-items:flex-start;padding-top:12svh}
-  .mt .bm{left:38%;bottom:-.8em;width:96vw;transform:rotate(-34deg);opacity:.9}
-  .mt .bs{left:60%;bottom:-.4em;width:60vw;transform:rotate(-40deg)}
-  .mt .bs2{display:none}
+  .mt .bm{left:4%;bottom:-1.6em;width:94vw;transform:rotate(-31deg)}
+  .mt .bs{left:34%;bottom:-.9em;width:56vw;transform:rotate(-37deg)}
+  .mt .bs2{left:44%;bottom:-2.1em;width:44vw;transform:rotate(-22deg)}
   .eyebrow{letter-spacing:.45em}
-  .scroll-cue{display:none}
   .title{letter-spacing:.2em}
-  .honours li{grid-template-columns:96px 1fr;gap:4px 10px;padding:14px 0}
-  .honours .h-y{grid-column:2}
-  .badge{width:92px;height:46px}
-  .badge i{font-size:25px;left:14px}
+  .honours li{grid-template-columns:76px 1fr;gap:0 10px;padding:14px 0}
+  .honours .h-y{grid-column:2;font-size:16px}
+  .honours .h-t .by{display:block;font-size:15px;font-weight:700;color:var(--ink-2);margin:0}
+  .honours .h-t .kw{font-size:clamp(17px,5.1vw,21px)}
+  .badge{width:74px;height:40px}
+  .badge i{font-size:21px;left:11px}
+  .ti .t{font-size:18px}
+  .ti .box{padding:12px 12px 14px}
+  .awards span{font-size:17px;padding:6px 12px}
+  .ec b{font-size:21px}
   .secnav ul{gap:0;padding:8px 8px}
   .secnav a{padding:7px 10px;font-size:16px;letter-spacing:.04em}
   .items li{grid-template-columns:1fr;gap:2px}
-  .foot-actions .btn{flex:1;min-width:0}
-  .items .it{font-size:19px}
+  .domain-tabs{grid-template-columns:repeat(2,1fr);gap:8px}
+  .domain-tabs button{font-size:16px;padding:9px 4px;letter-spacing:0}
+  .domain-tabs button em{font-size:14px;margin-left:3px}
+  .foot-actions{gap:8px}
+  .foot-actions .btn{flex:1;min-width:0;padding:12px 4px;font-size:16px;letter-spacing:.04em}
+  .items .it{font-size:18px}
+  .items .rd{display:none!important}
+  .items .rm{display:inline;color:var(--gold-deep);font-size:17px;font-weight:900;margin-right:12px}
+  .ti .t,.ti.key .t{font-size:16.5px;letter-spacing:0}
+  .ti.key .t{font-weight:900}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -219,7 +233,7 @@ footer{margin-top:clamp(80px,12vw,130px);padding:clamp(56px,8vw,90px) 0 64px;bor
   .reveal{opacity:1;transform:none}
 }
 @media print{
-  .secnav,.hero-actions,.foot-actions,.scroll-cue{display:none}
+  .secnav,.hero-actions,.foot-actions{display:none}
   .hero{min-height:auto}
   .domain{display:block!important;page-break-inside:avoid;margin-bottom:24px}
   .domain-tabs{display:none}
@@ -242,7 +256,6 @@ footer{margin-top:clamp(80px,12vw,130px);padding:clamp(56px,8vw,90px) 0 64px;bor
       <a class="btn" href="#contact">聯絡方式</a>
     </div>
   </div>
-  <div class="scroll-cue">向下</div>
 </header>
 
 <nav class="secnav" aria-label="章節">
@@ -278,8 +291,8 @@ footer{margin-top:clamp(80px,12vw,130px);padding:clamp(56px,8vw,90px) 0 64px;bor
     <div class="head"><h2>學歷與經歷</h2><small>EDUCATION &amp; CAREER</small></div>
     <div class="sub">學歷</div>
     <div class="edu2">
-      <div class="ec"><span class="deg">碩士</span><b>國立臺灣師範大學</b><span>教育研究所（74 級）</span></div>
-      <div class="ec"><span class="deg">學士</span><b>國立高雄師範大學</b><span>數學系（60 級）</span></div>
+      <div class="ec"><b>國立臺灣師範大學</b><span>教育研究所 碩士（74 級）</span></div>
+      <div class="ec"><b>國立高雄師範大學</b><span>數學系 學士（60 級）</span></div>
     </div>
     <div class="sub" style="margin-top:48px">經歷</div>
     <div class="tl2" id="timeline"></div>
@@ -300,6 +313,7 @@ footer{margin-top:clamp(80px,12vw,130px);padding:clamp(56px,8vw,90px) 0 64px;bor
     <div class="foot-actions">
       <button class="btn solid" type="button" id="saveContact">存入通訊錄</button>
       <button class="btn" type="button" data-share>分享名片</button>
+      <a class="btn" href="namecard.jpg" download="余霖電子名片.jpg">下載名片</a>
     </div>
   </div>
 </footer>
@@ -326,11 +340,11 @@ const ERAS = [
     {y:"98～104 年", t:"臺北市立大學 兼任講師"},
   ]},
   {n:"貳", name:"教育出版", span:"民國 95～100 年", items:[
-    {y:"95～100 年", t:"翰林出版事業研發處 <b>執行長</b>"},
+    {y:"95～100 年", t:"翰林出版事業研發處 執行長"},
   ]},
-  {n:"參", name:"兩任中學校長", span:"民國 76～95 年", items:[
-    {y:"85～95 年", t:"臺北市立大直高中 <b>校長</b>", key:1},
-    {y:"76～85 年", t:"臺北市立天母國中 <b>校長</b>", key:1},
+  {n:"參", name:"中學校長", span:"民國 76～95 年", items:[
+    {y:"85～95 年", t:"臺北市立大直高中 校長"},
+    {y:"76～85 年", t:"臺北市立天母國中 校長"},
   ]},
   {n:"肆", name:"教學與輔導", span:"民國 74～95 年", items:[
     {y:"83～95 年", t:"國立臺北教育大學 兼任講師"},
@@ -342,11 +356,11 @@ const ERAS = [
 const DOMAINS = [
   {k:"教育改革與政策", d:"參與中央與臺北市教育政策的規劃、審議與推動", items:[
     ["行政院 教育改革推動委員會","委員","92～94 年"],
-    ["教育部 12 年國教專案辦公室","協作委員","106～115 年"],
+    ["教育部 12年國教專案辦公室","協作委員","106～115 年"],
     ["教育部 學習領導與學習共同體計畫","委員","101～104 年"],
     ["教育部 分組合作學習推動委員會","委員","101～103 年"],
     ["教育部 全國教育發展會議 教育體制之規劃工作小組","",'92 年'],
-    ["教育部 2001 年教育改革之檢討與改進會議工作小組","委員","90 年"],
+    ["教育部 2001年教育改革之檢討與改進會議工作小組","委員","90 年"],
     ["教育部 國家教育研究院籌備小組","委員","93～95 年"],
     ["教育部 師資培育審議委員","","92～94 年"],
     ["教育部 高級中學法施行細則研修","委員","88～89 年"],
@@ -433,11 +447,11 @@ const DOMAINS = [
 function rand(seed){ let s=seed*9301+49297; return ()=>{ s=(s*9301+49297)%233280; return s/233280; }; }
 function brushPath(w,h,r,thin,sweep){
   // 左粗右尖、略帶弧度的刷痕外形
-  const top=[], bot=[], n=26, mid=h*0.5, amp=thin?h*0.28:h*0.42;
+  const top=[], bot=[], n=26, mid=h*0.5, amp=thin?h*0.28:(sweep?h*0.36:h*0.42);
   for(let i=0;i<=n;i++){
     const t=i/n, x=w*0.04+t*w*0.92;
     const taper = sweep ? (t<0.42 ? 0.08+0.92*Math.pow(t/0.42,0.75) : 1-Math.pow((t-0.42)/0.58,1.25)*0.95) : thin ? Math.sin(Math.PI*Math.min(1,t*1.15))*0.9+0.1 : (t<0.12? 0.55+t*3.5 : 1-Math.pow((t-0.12)/0.88,2.2)*0.92);
-    const bend = sweep ? Math.sin(t*Math.PI*1.6)*h*0.07 - t*h*0.06 : -Math.sin(t*Math.PI*0.9)*h*0.06 - t*h*0.12;
+    const bend = sweep ? -Math.sin(t*Math.PI)*h*0.16 + t*h*0.05 : thin ? -Math.sin(t*Math.PI)*h*0.24 : -Math.sin(t*Math.PI*0.9)*h*0.06 - t*h*0.12;
     top.push([x, mid+bend-amp*taper*(0.9+r()*0.18)]);
     bot.push([x, mid+bend+amp*taper*(0.75+r()*0.2)]);
   }
@@ -480,16 +494,17 @@ function makeBrush(el){
 }
 
 /* ================= 渲染 ================= */
+const seg=t=>t.split(' ').map(x=>`<span class="nw">${x}</span>`).join(' ');
 const $=s=>document.querySelector(s);
 $('#currentList').innerHTML=CURRENT.map(c=>`<div class="cur"><div class="org">${c.org}</div><div class="role">${c.role}</div><div class="yr">${c.y}</div></div>`).join('');
-$('#honourList').innerHTML=HONOURS.map((h,i)=>`<li><div class="badge"><div data-brush="badge" data-w="240" data-h="110" data-seed="${40+i*7}" style="position:absolute;inset:0"></div><i>0${i+1}</i></div><div class="h-t">${h.by}　<span class="kw">${h.t}</span></div><div class="h-y">${h.y}</div></li>`).join('');
+$('#honourList').innerHTML=HONOURS.map((h,i)=>`<li><div class="badge"><div data-brush="badge" data-w="240" data-h="110" data-seed="${40+i*7}" style="position:absolute;inset:0"></div><i>0${i+1}</i></div><div class="h-t"><span class="by nw">${h.by}</span><span class="kw nw">${h.t}</span></div><div class="h-y">${h.y}</div></li>`).join('');
 let side=0;
 $('#timeline').innerHTML=ERAS.map(e=>`<div class="era"><div class="medal"><b>${e.n}</b><span>${e.name}<em>${e.span}</em></span></div></div>`+
-  e.items.map(t=>`<div class="ti ${(side++%2)?'r':'l'} ${t.key?'key':''}"><div class="box"><div class="yr">${t.y}</div><div class="t">${t.t}</div></div></div>`).join('')).join('');
+  e.items.map(t=>`<div class="ti ${(side++%2)?'r':'l'} ${t.key?'key':''}"><div class="box"><div class="yr">${t.y}</div><div class="t">${seg(t.t)}</div></div></div>`).join('')).join('');
 $('#domainTabs').innerHTML=DOMAINS.map((d,i)=>`<button role="tab" type="button" class="${i?'':'on'}" data-i="${i}">${d.k}<em>${d.items.length}</em></button>`).join('');
 $('#domainPanels').innerHTML=DOMAINS.map((d,i)=>`<div class="domain ${i?'':'on'}" role="tabpanel">
   <div class="domain-intro"><div class="big">${d.k}</div></div><p class="domain-desc">${d.d}</p>
-  <ul class="items">${d.items.map(([t,r,y])=>`<li><div class="it">${t}${r?`<small>${r}</small>`:''}</div><div class="iy">${y}</div></li>`).join('')}</ul></div>`).join('');
+  <ul class="items">${d.items.map(([t,r,y])=>`<li><div class="it">${seg(t)}${r?`<small class="nw rd">${r}</small>`:''}</div><div class="iy">${r?`<small class="rm">${r}</small>`:''}${y}</div></li>`).join('')}</ul></div>`).join('');
 $('#domainTabs').addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b) return;
   document.querySelectorAll('#domainTabs button').forEach(x=>x.classList.toggle('on',x===b));
