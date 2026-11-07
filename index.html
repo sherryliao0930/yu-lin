@@ -33,20 +33,23 @@ body{
 }
 .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(18px,5vw,56px)}
 /* 重點字：粗體＋淡金底線 */
-.kw{background:linear-gradient(transparent 60%,rgba(226,190,110,.6) 60%,rgba(226,190,110,.6) 92%,transparent 92%);font-weight:900;padding:0 .08em}
+.kw{background:linear-gradient(transparent 58%,rgba(226,190,110,.6) 58%,rgba(226,190,110,.6) 94%,transparent 94%);font-weight:900;padding:0 .12em;color:var(--ink)}
 
 /* ---------- Hero ---------- */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:72px 0 64px;overflow:hidden}
-/* 主筆刷：貼在「余霖」右側，斜向上快速一刷 */
-.name{position:relative}
-.name .bm{position:absolute;z-index:-1;left:2.02em;top:-.16em;width:min(820px,62vw);transform:rotate(-12deg);transform-origin:0 60%;pointer-events:none;opacity:0;animation:sweep .9s .15s cubic-bezier(.8,0,.15,1) forwards}
-.name .bs{position:absolute;z-index:-1;left:2.75em;top:.92em;width:min(500px,38vw);transform:rotate(-8deg);transform-origin:0 50%;pointer-events:none;opacity:0;animation:sweep .7s .75s cubic-bezier(.8,0,.15,1) forwards}
+/* 主筆刷：從「典範轉移」右側起筆，由左下往右上一氣刷出 */
+.mt{position:relative;display:inline-flex;align-items:center}
+.mt .bm,.mt .bs,.mt .bs2{position:absolute;z-index:-1;pointer-events:none;opacity:0}
+.mt .bm{left:calc(100% + 6px);bottom:-1.6em;width:min(900px,66vw);transform:rotate(-27deg);transform-origin:0 70%;animation:sweep 1.05s .15s cubic-bezier(.7,0,.2,1) forwards}
+.mt .bs{left:calc(100% + 70px);bottom:-1.2em;width:min(620px,46vw);transform:rotate(-33deg);transform-origin:0 50%;animation:sweep .75s .8s cubic-bezier(.7,0,.2,1) forwards}
+.mt .bs2{left:calc(100% + 160px);bottom:-2.4em;width:min(520px,38vw);transform:rotate(-21deg);transform-origin:0 50%;animation:sweep .7s 1s cubic-bezier(.7,0,.2,1) forwards}
 @keyframes sweep{from{opacity:0;clip-path:inset(0 100% 0 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
 .hero-text{position:relative;z-index:2;width:100%}
 .eyebrow{color:var(--gold-deep);letter-spacing:.5em;font-size:clamp(17px,1.9vw,20px);font-weight:900}
 .name{font-weight:900;font-size:clamp(84px,17vw,180px);line-height:1.12;letter-spacing:.12em;margin:14px 0 10px;
   text-shadow:0 1px 0 rgba(255,255,255,.6)}
 .name .en{font-size:clamp(20px,2.4vw,28px);letter-spacing:.06em;font-weight:900;color:var(--ink-2);margin-left:.4em;text-shadow:0 0 6px var(--paper),0 0 12px var(--paper)}
+.title,.tagline,.motto .mt{text-shadow:0 0 6px var(--paper),0 0 14px var(--paper)}
 .motto{margin-top:14px;font-size:clamp(20px,2.4vw,24px);font-weight:900;letter-spacing:.32em;color:var(--gold-deep);display:flex;align-items:center}
 .motto i{display:inline-block;width:9px;height:9px;background:var(--gold);transform:rotate(45deg)}
 .contact{display:flex;flex-direction:column;gap:14px;margin-top:24px}
@@ -89,10 +92,9 @@ section.block{padding:clamp(64px,10vw,110px) 0 0}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .stat{padding:34px 10px 28px;text-align:center;position:relative}
 .stat+.stat::before{content:"";position:absolute;left:0;top:22%;bottom:22%;width:1px;background:var(--line)}
-.stat .num{position:relative;display:inline-block;padding:6px 16px 0}
-.stat .num .sw{position:absolute;left:-4px;right:-6px;bottom:0;height:44%;z-index:0}
-.stat b{position:relative;z-index:1;display:block;font-size:clamp(48px,6vw,62px);font-weight:900;line-height:1.25;color:#5a3c0a;
-  text-shadow:0 1px 0 rgba(255,248,225,.9)}
+.stat .num{display:inline-block}
+.stat b{display:block;font-size:clamp(48px,6vw,62px);font-weight:900;line-height:1.25;padding-top:4px;
+  background:linear-gradient(115deg,#8a6424 0%,#d9b765 38%,#f3dc98 50%,#b48a3c 64%,#8a6424 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .stat b sup{font-size:.42em;vertical-align:super;margin-left:3px}
 .stat span{display:block;margin-top:10px;font-size:20px;font-weight:900;letter-spacing:.12em;color:var(--ink)}
 .stat em{display:block;font-style:normal;font-size:16px;font-weight:500;color:var(--ink-2);letter-spacing:.03em;margin-top:2px}
@@ -108,31 +110,49 @@ section.block{padding:clamp(64px,10vw,110px) 0 0}
 /* honours */
 .honours{list-style:none}
 .honours li{display:grid;grid-template-columns:132px 1fr auto;align-items:center;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
-.honours li.top{padding:22px 20px 22px 12px;margin-bottom:14px;border:2px solid var(--gold);background:rgba(255,250,236,.92);box-shadow:0 8px 24px rgba(120,85,25,.1)}
-.honours li.top .h-t{font-size:clamp(23px,3vw,29px);font-weight:900}
-.honours .h-t small{display:block;font-size:16px;font-weight:700;color:var(--gold-deep);letter-spacing:.12em}
 .badge{position:relative;width:120px;height:58px}
 .badge svg{position:absolute;inset:0;width:100%;height:100%}
 .badge i{position:absolute;left:20px;top:50%;transform:translateY(-52%);font-style:normal;font-weight:900;font-size:30px;color:#1e160a;letter-spacing:.02em;text-shadow:0 0 6px rgba(255,245,215,.95)}
 .honours .h-t{font-size:clamp(20px,2.3vw,23px);font-weight:900;letter-spacing:.04em;line-height:1.5}
 .honours .h-y{color:var(--ink-2);font-size:18px;font-weight:700;letter-spacing:.04em;white-space:nowrap}
 
-/* timeline */
-.cols{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,5vw,64px)}
-.sub{font-size:19px;letter-spacing:.3em;color:var(--gold-deep);font-weight:900;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+/* timeline：分期＋左右交錯 */
+.sub{font-size:20px;letter-spacing:.3em;color:var(--gold-deep);font-weight:900;margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .sub::after{content:"";flex:1;height:1px;background:var(--line)}
-.edu{list-style:none}
-.edu li{padding:14px 0;border-bottom:1px dashed var(--line)}
-.edu b{font-weight:900;font-size:22px;letter-spacing:.04em;display:block}
-.edu span{color:var(--ink-2);font-size:18px;letter-spacing:.04em}
-.tl{list-style:none;position:relative;padding-left:28px}
-.tl::before{content:"";position:absolute;left:6px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--gold),rgba(176,132,51,.25))}
-.tl li{position:relative;padding:10px 0 12px}
-.tl li::before{content:"";position:absolute;left:-28px;top:20px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:2px solid var(--gold)}
-.tl li.key::before{background:radial-gradient(circle at 35% 35%,#f6e2a2,#a77a2a)}
-.tl .y{font-size:17px;font-weight:700;color:var(--gold-deep);letter-spacing:.06em}
-.tl .t{font-size:20px;font-weight:500;letter-spacing:.02em}
-.tl .t b{font-weight:900;font-size:1.1em}
+.edu2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ec{position:relative;padding:22px 24px 20px 24px;background:rgba(255,252,244,.9);border:1px solid var(--line);border-left:5px solid var(--gold)}
+.ec .deg{position:absolute;right:16px;top:14px;font-size:15px;font-weight:900;color:#fff;background:#7a5518;padding:2px 12px;border-radius:14px;letter-spacing:.2em}
+.ec b{display:block;font-size:23px;font-weight:900;letter-spacing:.04em}
+.ec span{font-size:18px;color:var(--ink-2)}
+.tl2{position:relative;padding:6px 0 10px}
+.tl2::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:4px;margin-left:-2px;border-radius:2px;
+  background:linear-gradient(rgba(176,132,51,0),#c99a45 6%,#e2c47a 30%,#b08433 60%,#d9b866 85%,rgba(176,132,51,0))}
+.era{position:relative;z-index:1;text-align:center;margin:34px 0 18px}
+.era:first-child{margin-top:0}
+.era .medal{display:inline-flex;align-items:center;gap:14px;padding:8px 26px 8px 8px;background:#fffaf0;border:2px solid var(--gold);border-radius:40px;box-shadow:0 8px 22px rgba(120,85,25,.12)}
+.era .medal b{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;font-size:22px;font-weight:900;color:#fff;
+  background:radial-gradient(circle at 35% 30%,#f3d98f,#b08433 58%,#6f4c12);box-shadow:inset 0 -2px 4px rgba(0,0,0,.2)}
+.era .medal span{font-size:23px;font-weight:900;letter-spacing:.12em;text-align:left;line-height:1.3}
+.era .medal em{display:block;font-style:normal;font-size:16px;font-weight:700;color:var(--gold-deep);letter-spacing:.06em}
+.ti{position:relative;width:calc(50% - 44px);margin:12px 0}
+.ti.l{margin-right:auto;text-align:right}
+.ti.r{margin-left:auto}
+.ti .box{position:relative;background:rgba(255,252,244,.92);border:1px solid var(--line);padding:14px 20px 16px;box-shadow:0 4px 14px rgba(120,85,25,.06)}
+.ti::before{content:"";position:absolute;top:26px;width:44px;height:2px;background:linear-gradient(90deg,var(--gold),rgba(176,132,51,.4))}
+.ti.l::before{right:-44px;background:linear-gradient(90deg,rgba(176,132,51,.4),var(--gold))}
+.ti.r::before{left:-44px}
+.ti::after{content:"";position:absolute;top:19px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--gold);box-sizing:border-box}
+.ti.l::after{right:-52px}
+.ti.r::after{left:-52px}
+.ti .yr{display:inline-block;font-size:16px;font-weight:900;color:var(--gold-deep);letter-spacing:.06em;margin-bottom:4px}
+.ti .t{font-size:20px;font-weight:500;letter-spacing:.02em;line-height:1.6}
+.ti .t b{font-weight:900}
+.ti.key .box{border:2px solid var(--gold);background:linear-gradient(135deg,#fffaf0,#f8ecd0)}
+.ti.key .yr{color:#fff;background:#7a5518;padding:1px 14px;border-radius:14px}
+.ti.key .t{font-size:23px;font-weight:900}
+.ti.key::after{width:22px;height:22px;top:16px;border:none;background:radial-gradient(circle at 35% 30%,#f6e2a2,#b08433 60%,#6f4c12);box-shadow:0 0 0 4px rgba(226,196,122,.35)}
+.ti.key.l::after{right:-55px}
+.ti.key.r::after{left:-55px}
 
 /* domains */
 .domain-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
@@ -149,22 +169,14 @@ section.block{padding:clamp(64px,10vw,110px) 0 0}
 .items li{display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:baseline;padding:16px 2px;border-bottom:1px solid var(--line)}
 .items .it{font-size:20px;font-weight:500;letter-spacing:.02em;line-height:1.65}
 .items .it small{display:inline-block;color:var(--gold-deep);font-size:19px;margin-left:10px;letter-spacing:.05em;font-weight:900}
-.items .it small.kw{color:var(--ink);font-size:20px}
 .items .iy{color:var(--ink-2);font-size:17px;font-weight:700;letter-spacing:.03em;white-space:nowrap;font-variant-numeric:tabular-nums}
 
-/* footer card */
-footer{margin-top:clamp(80px,12vw,130px);padding:clamp(56px,8vw,90px) 0 48px;position:relative;overflow:hidden;border-top:1px solid var(--line);background:linear-gradient(rgba(239,230,211,.4),rgba(239,230,211,.9))}
-footer .brush-foot{position:absolute;right:-10%;top:4%;width:min(560px,80vw);opacity:.45;transform:rotate(-7deg);pointer-events:none}
-.card{position:relative;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
-.card h3{font-size:clamp(38px,5vw,50px);font-weight:900;letter-spacing:.16em;line-height:1.25}
-.card p{color:var(--ink);font-weight:900;font-size:20px;letter-spacing:.1em;margin-top:8px}
-.card .quote{margin-top:14px;color:var(--gold-deep);font-size:21px;font-weight:900;letter-spacing:.2em;line-height:2}
-.qr{background:#fffaf0;padding:14px;border:2px solid var(--gold);box-shadow:0 10px 30px rgba(120,90,40,.12);text-align:center}
-.qr #qrbox{width:170px;height:170px}
-.qr #qrbox img,.qr #qrbox canvas{width:170px!important;height:170px!important}
-.qr small{display:block;margin-top:8px;font-size:17px;font-weight:700;letter-spacing:.2em;color:var(--ink-2)}
-.foot-actions{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
-.copy{margin-top:48px;text-align:center;font-size:16px;letter-spacing:.08em;color:var(--ink-2)}
+/* footer：名片圖 */
+footer{margin-top:clamp(80px,12vw,130px);padding:clamp(56px,8vw,90px) 0 64px;border-top:1px solid var(--line);background:linear-gradient(rgba(239,230,211,.4),rgba(239,230,211,.9))}
+.namecard{margin:0 auto;max-width:960px;box-shadow:0 18px 50px rgba(90,62,15,.22),0 2px 6px rgba(90,62,15,.12);border-radius:6px;overflow:hidden;background:#f3ecdf}
+.namecard img{display:block;width:100%;height:auto}
+.foot-actions{margin:32px auto 0;display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.foot-actions .btn{min-width:200px;text-align:center}
 .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--ink);color:var(--paper);padding:12px 24px;font-size:18px;letter-spacing:.1em;opacity:0;transition:.3s;pointer-events:none;z-index:50;border-radius:3px}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
@@ -172,18 +184,24 @@ footer .brush-foot{position:absolute;right:-10%;top:4%;width:min(560px,80vw);opa
 @media (max-width:820px){
   .hero{align-items:flex-start;padding-top:14svh}
   .current{grid-template-columns:1fr}
-  .cols{grid-template-columns:1fr}
+  .edu2{grid-template-columns:1fr}
+  .tl2::before{left:18px}
+  .era{text-align:left;margin-left:-2px}
+  .ti,.ti.l,.ti.r{width:auto;margin-left:46px;margin-right:0;text-align:left}
+  .ti.l::before,.ti.r::before{left:-28px;right:auto;width:28px;background:linear-gradient(90deg,var(--gold),rgba(176,132,51,.4))}
+  .ti.l::after,.ti.r::after{left:-36px;right:auto}
+  .ti.key.l::after,.ti.key.r::after{left:-39px;right:auto}
   .stats{grid-template-columns:repeat(2,1fr)}
   .stat:nth-child(3)::before{display:none}
   .stat:nth-child(n+3){border-top:1px solid var(--line)}
 }
 @media (max-width:560px){
   .hero{align-items:flex-start;padding-top:12svh}
-  .name .bm{left:1.8em;top:-.12em;width:90vw;transform:rotate(-13deg)}
-  .name .bs{left:2.3em;top:1.05em;width:56vw}
+  .mt .bm{left:38%;bottom:-.8em;width:96vw;transform:rotate(-34deg);opacity:.9}
+  .mt .bs{left:60%;bottom:-.4em;width:60vw;transform:rotate(-40deg)}
+  .mt .bs2{display:none}
   .eyebrow{letter-spacing:.45em}
   .scroll-cue{display:none}
-  footer .brush-foot{top:1%;right:-24%;width:78vw;opacity:.35}
   .title{letter-spacing:.2em}
   .honours li{grid-template-columns:96px 1fr;gap:4px 10px;padding:14px 0}
   .honours .h-y{grid-column:2}
@@ -192,15 +210,12 @@ footer .brush-foot{position:absolute;right:-10%;top:4%;width:min(560px,80vw);opa
   .secnav ul{gap:0;padding:8px 8px}
   .secnav a{padding:7px 10px;font-size:16px;letter-spacing:.04em}
   .items li{grid-template-columns:1fr;gap:2px}
-  .card{grid-template-columns:1fr;justify-items:start}
-  .tl .t{font-size:18px}
-  .honours li.top{padding:18px 12px 18px 6px}
-  .stat b{font-size:46px}
+  .foot-actions .btn{flex:1;min-width:0}
   .items .it{font-size:19px}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
-  .name .bm,.name .bs{opacity:1}
+  .mt .bm,.mt .bs,.mt .bs2{opacity:1}
   .reveal{opacity:1;transform:none}
 }
 @media print{
@@ -217,9 +232,9 @@ footer .brush-foot{position:absolute;right:-10%;top:4%;width:min(560px,80vw);opa
 <header class="hero" id="top">
   <div class="wrap hero-text">
     <div class="eyebrow">體制內改革者</div>
-    <h1 class="name"><span class="bm" data-brush="hero" data-w="900" data-h="300" data-seed="7" aria-hidden="true"></span><span class="bs" data-brush="thin" data-w="700" data-h="90" data-seed="21" aria-hidden="true"></span>余霖<span class="en">Yu, Lin</span></h1>
+    <h1 class="name">余霖<span class="en">Yu, Lin</span></h1>
     <div class="title">臺北市政府教育局　聘任督學</div>
-    <div class="motto">跨域整合　<i></i>　典範轉移</div>
+    <div class="motto"><span class="mt">跨域整合　<i></i>　典範轉移<span class="bm" data-brush="sweep" data-w="900" data-h="300" data-seed="7" aria-hidden="true"></span><span class="bs" data-brush="thin" data-w="700" data-h="70" data-seed="21" aria-hidden="true"></span><span class="bs2" data-brush="thin" data-w="600" data-h="50" data-seed="29" aria-hidden="true"></span></span></div>
     <p class="tagline"><span>前臺北市立大直高中校長</span>　<span>前臺北市立天母國中校長</span></p>
     <div class="awards"><span>教育部 教學卓越金質獎</span><span>教育部 高中校長領導卓越獎</span><span>教育學術團體 木鐸獎</span></div>
     <div class="hero-actions">
@@ -244,10 +259,10 @@ footer .brush-foot{position:absolute;right:-10%;top:4%;width:min(560px,80vw);opa
 
   <section class="block reveal" id="honours" style="padding-top:clamp(48px,8vw,80px)">
     <div class="stats">
-      <div class="stat"><div class="num"><div class="sw" data-brush="badge" data-w="240" data-h="70" data-seed="61"></div><b>19<sup>年</sup></b></div><span>中學校長</span><em>天母國中・大直高中</em></div>
-      <div class="stat"><div class="num"><div class="sw" data-brush="badge" data-w="240" data-h="70" data-seed="68"></div><b>15<sup>年+</sup></b></div><span>聘任督學</span><em>民國 100 年迄今</em></div>
-      <div class="stat"><div class="num"><div class="sw" data-brush="badge" data-w="240" data-h="70" data-seed="75"></div><b>14<sup>項</sup></b></div><span>中央教育委員</span><em>行政院・教育部</em></div>
-      <div class="stat"><div class="num"><div class="sw" data-brush="badge" data-w="240" data-h="70" data-seed="82"></div><b>5<sup>項</sup></b></div><span>教育榮譽</span><em>金質獎・卓越獎</em></div>
+      <div class="stat"><div class="num"><b>19<sup>年</sup></b></div><span>中學校長</span><em>天母國中・大直高中</em></div>
+      <div class="stat"><div class="num"><b>15<sup>年+</sup></b></div><span>聘任督學</span><em>民國 100 年迄今</em></div>
+      <div class="stat"><div class="num"><b>14<sup>項</sup></b></div><span>中央教育委員</span><em>行政院・教育部</em></div>
+      <div class="stat"><div class="num"><b>5<sup>項</sup></b></div><span>教育榮譽</span><em>金質獎・卓越獎</em></div>
     </div>
 
     <div class="head" style="margin-top:clamp(56px,8vw,88px)"><h2>得獎榮譽</h2><small>HONOURS</small></div>
@@ -261,19 +276,13 @@ footer .brush-foot{position:absolute;right:-10%;top:4%;width:min(560px,80vw);opa
 
   <section class="block reveal" id="career">
     <div class="head"><h2>學歷與經歷</h2><small>EDUCATION &amp; CAREER</small></div>
-    <div class="cols">
-      <div>
-        <div class="sub">學歷</div>
-        <ul class="edu">
-          <li><b>國立臺灣師範大學</b><span>教育研究所 碩士（74 級）</span></li>
-          <li><b>國立高雄師範大學</b><span>數學系（60 級）</span></li>
-        </ul>
-      </div>
-      <div>
-        <div class="sub">經歷</div>
-        <ul class="tl" id="timeline"></ul>
-      </div>
+    <div class="sub">學歷</div>
+    <div class="edu2">
+      <div class="ec"><span class="deg">碩士</span><b>國立臺灣師範大學</b><span>教育研究所（74 級）</span></div>
+      <div class="ec"><span class="deg">學士</span><b>國立高雄師範大學</b><span>數學系（60 級）</span></div>
     </div>
+    <div class="sub" style="margin-top:48px">經歷</div>
+    <div class="tl2" id="timeline"></div>
   </section>
 
   <section class="block reveal" id="domains">
@@ -285,32 +294,18 @@ footer .brush-foot{position:absolute;right:-10%;top:4%;width:min(560px,80vw);opa
 </main>
 
 <footer id="contact">
-  <div class="brush-foot" data-brush="hero" data-w="900" data-h="260" data-seed="33"></div>
   <div class="wrap">
-    <div class="card">
-      <div>
-        <h3>余霖 <small style="font-size:.42em;letter-spacing:.06em;color:var(--ink-2)">Yu, Lin</small></h3>
-        <p>臺北市政府教育局　聘任督學</p>
-        <p class="quote">跨域整合・典範轉移</p>
-        <div class="contact">
-          <a href="tel:+886966162649"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>手機　0966-162-649</a>
-          <a href="mailto:jeusdd@gmail.com"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>jeusdd@gmail.com</a>
-        </div>
-        <div class="foot-actions">
-          <button class="btn solid" type="button" id="saveContact">存入通訊錄</button>
-          <button class="btn" type="button" data-share>分享名片</button>
-          <button class="btn" type="button" id="copyLink">複製連結</button>
-        </div>
-      </div>
-      <div class="qr"><div id="qrbox"></div><small>掃碼認識余霖</small></div>
+    <div class="head"><h2>電子名片</h2><small>CONTACT</small></div>
+    <figure class="namecard"><img src="namecard.jpg" width="2000" height="1116" alt="余霖名片：體制內改革者，跨域整合・典範轉移，手機 0966-162-649，E-mail jeusdd@gmail.com"></figure>
+    <div class="foot-actions">
+      <button class="btn solid" type="button" id="saveContact">存入通訊錄</button>
+      <button class="btn" type="button" data-share>分享名片</button>
     </div>
-    <div class="copy">資料依余霖老師提供之資歷整理・年份為民國紀年</div>
   </div>
 </footer>
 
 <div class="toast" id="toast"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
 /* ================= 資料 ================= */
 const CURRENT = [
@@ -319,22 +314,30 @@ const CURRENT = [
   {org:"中華民國學校行政研究學會", role:"理監事", y:"96 年～迄今"},
 ];
 const HONOURS = [
-  {t:"教學卓越金質獎", by:"教育部", y:"92 年", top:1},
-  {t:"高中校長領導卓越獎", by:"教育部", y:"94 年", top:1},
+  {t:"教學卓越金質獎", by:"教育部", y:"92 年"},
+  {t:"高中校長領導卓越獎", by:"教育部", y:"94 年"},
   {t:"木鐸獎", by:"教育學術團體", y:"102 年"},
   {t:"行動研究專業論文 特優", by:"臺北市", y:"93 年"},
   {t:"優秀校長獎", by:"臺北市", y:"86 年"},
 ];
-const TIMELINE = [
-  {y:"100 年～迄今", t:"臺北市政府教育局 <b>聘任督學</b>", key:1},
-  {y:"98～104 年", t:"臺北市立大學 兼任講師"},
-  {y:"95～100 年", t:"翰林出版事業研發處 <b>執行長</b>"},
-  {y:"85～95 年", t:"臺北市立大直高中 <b>校長</b>", key:1},
-  {y:"83～95 年", t:"國立臺北教育大學 兼任講師"},
-  {y:"79～83 年", t:"臺北市立教育大學 兼任講師"},
-  {y:"78～87 年", t:"臺北市國中數學科輔導團 主任輔導員"},
-  {y:"76～85 年", t:"臺北市立天母國中 <b>校長</b>", key:1},
-  {y:"74～75 年", t:"中央警察大學 兼任講師"},
+const ERAS = [
+  {n:"壹", name:"教育行政・督學", span:"民國 98 年～迄今", items:[
+    {y:"100 年～迄今", t:"臺北市政府教育局 <b>聘任督學</b>", key:1},
+    {y:"98～104 年", t:"臺北市立大學 兼任講師"},
+  ]},
+  {n:"貳", name:"教育出版", span:"民國 95～100 年", items:[
+    {y:"95～100 年", t:"翰林出版事業研發處 <b>執行長</b>"},
+  ]},
+  {n:"參", name:"兩任中學校長", span:"民國 76～95 年", items:[
+    {y:"85～95 年", t:"臺北市立大直高中 <b>校長</b>", key:1},
+    {y:"76～85 年", t:"臺北市立天母國中 <b>校長</b>", key:1},
+  ]},
+  {n:"肆", name:"教學與輔導", span:"民國 74～95 年", items:[
+    {y:"83～95 年", t:"國立臺北教育大學 兼任講師"},
+    {y:"79～83 年", t:"臺北市立教育大學 兼任講師"},
+    {y:"78～87 年", t:"臺北市國中數學科輔導團 主任輔導員"},
+    {y:"74～75 年", t:"中央警察大學 兼任講師"},
+  ]},
 ];
 const DOMAINS = [
   {k:"教育改革與政策", d:"參與中央與臺北市教育政策的規劃、審議與推動", items:[
@@ -428,13 +431,13 @@ const DOMAINS = [
 
 /* ================= 金色筆刷（SVG 濾鏡繪製） ================= */
 function rand(seed){ let s=seed*9301+49297; return ()=>{ s=(s*9301+49297)%233280; return s/233280; }; }
-function brushPath(w,h,r,thin){
+function brushPath(w,h,r,thin,sweep){
   // 左粗右尖、略帶弧度的刷痕外形
-  const top=[], bot=[], n=26, mid=h*0.5, amp=thin?h*0.28:h*0.46;
+  const top=[], bot=[], n=26, mid=h*0.5, amp=thin?h*0.28:h*0.42;
   for(let i=0;i<=n;i++){
     const t=i/n, x=w*0.04+t*w*0.92;
-    const taper = thin ? Math.sin(Math.PI*Math.min(1,t*1.15))*0.9+0.1 : (t<0.08? 0.7+t*3.75 : 1-Math.pow((t-0.08)/0.92,1.6)*0.97);
-    const bend = thin ? -Math.sin(t*Math.PI*0.9)*h*0.06 - t*h*0.12 : -Math.sin(t*Math.PI*0.7)*h*0.1 - Math.pow(t,1.8)*h*0.14;
+    const taper = sweep ? (t<0.42 ? 0.08+0.92*Math.pow(t/0.42,0.75) : 1-Math.pow((t-0.42)/0.58,1.25)*0.95) : thin ? Math.sin(Math.PI*Math.min(1,t*1.15))*0.9+0.1 : (t<0.12? 0.55+t*3.5 : 1-Math.pow((t-0.12)/0.88,2.2)*0.92);
+    const bend = sweep ? Math.sin(t*Math.PI*1.6)*h*0.07 - t*h*0.06 : -Math.sin(t*Math.PI*0.9)*h*0.06 - t*h*0.12;
     top.push([x, mid+bend-amp*taper*(0.9+r()*0.18)]);
     bot.push([x, mid+bend+amp*taper*(0.75+r()*0.2)]);
   }
@@ -447,7 +450,7 @@ let bid=0;
 function makeBrush(el){
   const w=+el.dataset.w||600, h=+el.dataset.h||200, seed=+el.dataset.seed||(bid+3), kind=el.dataset.brush;
   const r=rand(seed), id='g'+(bid++), thin=kind==='thin', small=kind==='badge';
-  const d=brushPath(w,h,r,thin);
+  const d=brushPath(w,h,r,thin,kind==='sweep');
   const disp = small? 9 : thin? 14 : 34;
   el.innerHTML=`<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <defs>
@@ -466,7 +469,7 @@ function makeBrush(el){
       <feColorMatrix in="s2" type="matrix" values="0 0 0 0 .5  0 0 0 0 .34  0 0 0 0 .1  0 0 0 2.6 -1.45" result="dk"/>
       <feComposite in="dk" in2="shape" operator="in" result="dk2"/>
       <feTurbulence type="fractalNoise" baseFrequency="${small?'.02 .9':'.004 .5'}" numOctaves="1" seed="${seed+13}" result="s3"/>
-      <feColorMatrix in="s3" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -4 2.55" result="gap"/>
+      <feColorMatrix in="s3" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -4 2.9" result="gap"/>
       <feComposite in="shape" in2="gap" operator="in" result="dry"/>
       <feMerge><feMergeNode in="dry"/><feMergeNode in="dk2"/><feMergeNode in="hl2"/></feMerge>
       <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#7a5418" flood-opacity=".18"/>
@@ -477,15 +480,16 @@ function makeBrush(el){
 }
 
 /* ================= 渲染 ================= */
-const KEY=/主任委員|理事長|執行長|主編|主持人|召集人|考試委員|指導委員|主任輔導員|常務理事|執行秘書/;
 const $=s=>document.querySelector(s);
 $('#currentList').innerHTML=CURRENT.map(c=>`<div class="cur"><div class="org">${c.org}</div><div class="role">${c.role}</div><div class="yr">${c.y}</div></div>`).join('');
-$('#honourList').innerHTML=HONOURS.map((h,i)=>`<li class="${h.top?'top':''}"><div class="badge"><div data-brush="badge" data-w="240" data-h="110" data-seed="${40+i*7}" style="position:absolute;inset:0"></div><i>0${i+1}</i></div><div class="h-t">${h.by?`<small>${h.by}</small>`:''}${h.t}</div><div class="h-y">${h.y}</div></li>`).join('');
-$('#timeline').innerHTML=TIMELINE.map(t=>`<li class="${t.key?'key':''}"><div class="y">${t.y}</div><div class="t">${t.t}</div></li>`).join('');
+$('#honourList').innerHTML=HONOURS.map((h,i)=>`<li><div class="badge"><div data-brush="badge" data-w="240" data-h="110" data-seed="${40+i*7}" style="position:absolute;inset:0"></div><i>0${i+1}</i></div><div class="h-t">${h.by}　<span class="kw">${h.t}</span></div><div class="h-y">${h.y}</div></li>`).join('');
+let side=0;
+$('#timeline').innerHTML=ERAS.map(e=>`<div class="era"><div class="medal"><b>${e.n}</b><span>${e.name}<em>${e.span}</em></span></div></div>`+
+  e.items.map(t=>`<div class="ti ${(side++%2)?'r':'l'} ${t.key?'key':''}"><div class="box"><div class="yr">${t.y}</div><div class="t">${t.t}</div></div></div>`).join('')).join('');
 $('#domainTabs').innerHTML=DOMAINS.map((d,i)=>`<button role="tab" type="button" class="${i?'':'on'}" data-i="${i}">${d.k}<em>${d.items.length}</em></button>`).join('');
 $('#domainPanels').innerHTML=DOMAINS.map((d,i)=>`<div class="domain ${i?'':'on'}" role="tabpanel">
   <div class="domain-intro"><div class="big">${d.k}</div></div><p class="domain-desc">${d.d}</p>
-  <ul class="items">${d.items.map(([t,r,y])=>`<li><div class="it">${t}${r?`<small class="${KEY.test(r)?'kw':''}">${r}</small>`:''}</div><div class="iy">${y}</div></li>`).join('')}</ul></div>`).join('');
+  <ul class="items">${d.items.map(([t,r,y])=>`<li><div class="it">${t}${r?`<small>${r}</small>`:''}</div><div class="iy">${y}</div></li>`).join('')}</ul></div>`).join('');
 $('#domainTabs').addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b) return;
   document.querySelectorAll('#domainTabs button').forEach(x=>x.classList.toggle('on',x===b));
@@ -507,7 +511,7 @@ addEventListener('scroll',()=>{
   links.forEach((a,i)=>a.classList.toggle('on',i===cur));
 },{passive:true});
 
-/* 分享・QR */
+/* 分享・通訊錄 */
 const URL_SELF=location.href.split('#')[0];
 const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),1800);};
 async function copy(){ try{ await navigator.clipboard.writeText(URL_SELF); toast('已複製連結'); }catch(e){ prompt('請複製這個連結',URL_SELF); } }
@@ -515,14 +519,12 @@ document.querySelectorAll('[data-share]').forEach(b=>b.addEventListener('click',
   if(navigator.share){ try{ await navigator.share({title:'余霖｜體制內改革者',text:'臺北市政府教育局聘任督學・前大直高中校長 余霖',url:URL_SELF}); }catch(e){} }
   else copy();
 }));
-$('#copyLink').addEventListener('click',copy);
 $('#saveContact').addEventListener('click',()=>{
   const v=['BEGIN:VCARD','VERSION:3.0','N:余;霖;;;','FN:余霖','ORG:臺北市政府教育局','TITLE:聘任督學','TEL;TYPE=CELL:+886966162649','EMAIL;TYPE=INTERNET:jeusdd@gmail.com','URL:'+URL_SELF,'NOTE:體制內改革者｜跨域整合・典範轉移','END:VCARD'].join('\r\n');
   const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob([v],{type:'text/vcard;charset=utf-8'}));
   a.download='余霖.vcf'; document.body.appendChild(a); a.click(); a.remove();
 });
-try{ new QRCode($('#qrbox'),{text:URL_SELF,width:300,height:300,colorDark:'#2a2116',colorLight:'#fffaf0',correctLevel:QRCode.CorrectLevel.M}); }catch(e){}
 </script>
 </body>
 </html>
