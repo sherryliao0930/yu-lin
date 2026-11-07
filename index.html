@@ -37,14 +37,16 @@ body{
 
 /* ---------- Hero ---------- */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:72px 0 64px;overflow:hidden}
-.hero .brush-main{position:absolute;left:calc(50% - 20px);top:50%;width:min(760px,56vw);transform:translateY(-62%) rotate(-9deg);pointer-events:none;opacity:0;animation:sweep 1.6s .2s cubic-bezier(.2,.7,.2,1) forwards}
-.hero .brush-sub{position:absolute;left:calc(50% + 80px);top:50%;width:min(470px,36vw);transform:translateY(70%) rotate(-6deg);pointer-events:none;opacity:0;animation:sweep 1.4s .7s cubic-bezier(.2,.7,.2,1) forwards}
+/* 主筆刷：貼在「余霖」右側，斜向上快速一刷 */
+.name{position:relative}
+.name .bm{position:absolute;z-index:-1;left:2.02em;top:-.16em;width:min(820px,62vw);transform:rotate(-12deg);transform-origin:0 60%;pointer-events:none;opacity:0;animation:sweep .9s .15s cubic-bezier(.8,0,.15,1) forwards}
+.name .bs{position:absolute;z-index:-1;left:2.75em;top:.92em;width:min(500px,38vw);transform:rotate(-8deg);transform-origin:0 50%;pointer-events:none;opacity:0;animation:sweep .7s .75s cubic-bezier(.8,0,.15,1) forwards}
 @keyframes sweep{from{opacity:0;clip-path:inset(0 100% 0 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
 .hero-text{position:relative;z-index:2;width:100%}
 .eyebrow{color:var(--gold-deep);letter-spacing:.5em;font-size:clamp(17px,1.9vw,20px);font-weight:900}
 .name{font-weight:900;font-size:clamp(84px,17vw,180px);line-height:1.12;letter-spacing:.12em;margin:14px 0 10px;
   text-shadow:0 1px 0 rgba(255,255,255,.6)}
-.name .en{font-size:clamp(20px,2.4vw,28px);letter-spacing:.06em;font-weight:900;color:var(--ink-2);margin-left:.4em}
+.name .en{font-size:clamp(20px,2.4vw,28px);letter-spacing:.06em;font-weight:900;color:var(--ink-2);margin-left:.4em;text-shadow:0 0 6px var(--paper),0 0 12px var(--paper)}
 .motto{margin-top:14px;font-size:clamp(20px,2.4vw,24px);font-weight:900;letter-spacing:.32em;color:var(--gold-deep);display:flex;align-items:center}
 .motto i{display:inline-block;width:9px;height:9px;background:var(--gold);transform:rotate(45deg)}
 .contact{display:flex;flex-direction:column;gap:14px;margin-top:24px}
@@ -169,8 +171,6 @@ footer .brush-foot{position:absolute;right:-10%;top:4%;width:min(560px,80vw);opa
 /* ---------- Responsive ---------- */
 @media (max-width:820px){
   .hero{align-items:flex-start;padding-top:14svh}
-  .hero .brush-main{left:auto;right:-20%;top:auto;bottom:6%;width:100vw;transform:rotate(-10deg)}
-  .hero .brush-sub{left:auto;right:0;top:auto;bottom:2%;width:60vw;transform:rotate(-7deg)}
   .current{grid-template-columns:1fr}
   .cols{grid-template-columns:1fr}
   .stats{grid-template-columns:repeat(2,1fr)}
@@ -179,8 +179,8 @@ footer .brush-foot{position:absolute;right:-10%;top:4%;width:min(560px,80vw);opa
 }
 @media (max-width:560px){
   .hero{align-items:flex-start;padding-top:12svh}
-  .hero .brush-main{left:auto;right:-26%;top:auto;bottom:9%;width:118vw;transform:rotate(-11deg)}
-  .hero .brush-sub{left:auto;right:-4%;top:auto;bottom:4%;width:70vw;transform:rotate(-7deg)}
+  .name .bm{left:1.8em;top:-.12em;width:90vw;transform:rotate(-13deg)}
+  .name .bs{left:2.3em;top:1.05em;width:56vw}
   .eyebrow{letter-spacing:.45em}
   .scroll-cue{display:none}
   footer .brush-foot{top:1%;right:-24%;width:78vw;opacity:.35}
@@ -200,7 +200,7 @@ footer .brush-foot{position:absolute;right:-10%;top:4%;width:min(560px,80vw);opa
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
-  .hero .brush-main,.hero .brush-sub{opacity:1}
+  .name .bm,.name .bs{opacity:1}
   .reveal{opacity:1;transform:none}
 }
 @media print{
@@ -215,11 +215,9 @@ footer .brush-foot{position:absolute;right:-10%;top:4%;width:min(560px,80vw);opa
 <body>
 
 <header class="hero" id="top">
-  <div class="brush-main" data-brush="hero" data-w="900" data-h="300" data-seed="7"></div>
-  <div class="brush-sub" data-brush="thin" data-w="700" data-h="90" data-seed="21"></div>
   <div class="wrap hero-text">
     <div class="eyebrow">體制內改革者</div>
-    <h1 class="name">余霖<span class="en">Yu, Lin</span></h1>
+    <h1 class="name"><span class="bm" data-brush="hero" data-w="900" data-h="300" data-seed="7" aria-hidden="true"></span><span class="bs" data-brush="thin" data-w="700" data-h="90" data-seed="21" aria-hidden="true"></span>余霖<span class="en">Yu, Lin</span></h1>
     <div class="title">臺北市政府教育局　聘任督學</div>
     <div class="motto">跨域整合　<i></i>　典範轉移</div>
     <p class="tagline"><span>前臺北市立大直高中校長</span>　<span>前臺北市立天母國中校長</span></p>
@@ -432,11 +430,11 @@ const DOMAINS = [
 function rand(seed){ let s=seed*9301+49297; return ()=>{ s=(s*9301+49297)%233280; return s/233280; }; }
 function brushPath(w,h,r,thin){
   // 左粗右尖、略帶弧度的刷痕外形
-  const top=[], bot=[], n=26, mid=h*0.5, amp=thin?h*0.28:h*0.42;
+  const top=[], bot=[], n=26, mid=h*0.5, amp=thin?h*0.28:h*0.46;
   for(let i=0;i<=n;i++){
     const t=i/n, x=w*0.04+t*w*0.92;
-    const taper = thin ? Math.sin(Math.PI*Math.min(1,t*1.15))*0.9+0.1 : (t<0.12? 0.55+t*3.5 : 1-Math.pow((t-0.12)/0.88,2.2)*0.92);
-    const bend = -Math.sin(t*Math.PI*0.9)*h*0.06 - t*h*0.12;
+    const taper = thin ? Math.sin(Math.PI*Math.min(1,t*1.15))*0.9+0.1 : (t<0.08? 0.7+t*3.75 : 1-Math.pow((t-0.08)/0.92,1.6)*0.97);
+    const bend = thin ? -Math.sin(t*Math.PI*0.9)*h*0.06 - t*h*0.12 : -Math.sin(t*Math.PI*0.7)*h*0.1 - Math.pow(t,1.8)*h*0.14;
     top.push([x, mid+bend-amp*taper*(0.9+r()*0.18)]);
     bot.push([x, mid+bend+amp*taper*(0.75+r()*0.2)]);
   }
@@ -468,7 +466,7 @@ function makeBrush(el){
       <feColorMatrix in="s2" type="matrix" values="0 0 0 0 .5  0 0 0 0 .34  0 0 0 0 .1  0 0 0 2.6 -1.45" result="dk"/>
       <feComposite in="dk" in2="shape" operator="in" result="dk2"/>
       <feTurbulence type="fractalNoise" baseFrequency="${small?'.02 .9':'.004 .5'}" numOctaves="1" seed="${seed+13}" result="s3"/>
-      <feColorMatrix in="s3" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -4 2.9" result="gap"/>
+      <feColorMatrix in="s3" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -4 2.55" result="gap"/>
       <feComposite in="shape" in2="gap" operator="in" result="dry"/>
       <feMerge><feMergeNode in="dry"/><feMergeNode in="dk2"/><feMergeNode in="hl2"/></feMerge>
       <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#7a5418" flood-opacity=".18"/>
