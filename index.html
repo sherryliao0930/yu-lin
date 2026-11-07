@@ -8,6 +8,7 @@
 <meta property="og:title" content="余霖｜體制內改革者">
 <meta property="og:description" content="臺北市政府教育局聘任督學・前大直高中校長・木鐸獎得主">
 <meta property="og:type" content="profile">
+<meta property="og:image" content="https://sherryliao0930.github.io/yu-lin/card.jpg">
 <meta name="theme-color" content="#f5efe2">
 <meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,6 +42,14 @@ body{
 .eyebrow{color:var(--gold-deep);letter-spacing:.6em;font-size:clamp(13px,1.6vw,16px);font-weight:500}
 .name{font-weight:900;font-size:clamp(84px,17vw,180px);line-height:1.05;letter-spacing:.12em;margin:18px 0 10px;
   text-shadow:0 1px 0 rgba(255,255,255,.6)}
+.name .en{font-size:clamp(18px,2.4vw,26px);letter-spacing:.06em;font-weight:700;color:var(--ink-2);margin-left:.4em}
+.motto{margin-top:14px;font-size:clamp(17px,2.2vw,22px);font-weight:700;letter-spacing:.4em;color:var(--gold-deep);display:flex;align-items:center}
+.motto i{display:inline-block;width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+.contact{display:flex;flex-direction:column;gap:12px;margin-top:22px}
+.contact a{display:flex;align-items:center;gap:14px;color:var(--ink);text-decoration:none;font-size:clamp(16px,2vw,19px);letter-spacing:.06em;font-weight:500}
+.contact a span.ic{flex:none;width:42px;height:42px;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center;color:var(--gold-deep)}
+.contact a span.ic svg{width:20px;height:20px}
+.contact a:hover{color:var(--gold-deep)}
 .title{font-size:clamp(18px,2.4vw,24px);letter-spacing:.32em;color:var(--ink-2);font-weight:500}
 .tagline{margin-top:22px;color:var(--muted);font-size:clamp(14px,1.7vw,16px);letter-spacing:.14em;line-height:2}
 .tagline span{white-space:nowrap}
@@ -193,15 +202,16 @@ footer .brush-foot{position:absolute;right:-10%;top:4%;width:min(560px,80vw);opa
   <div class="brush-sub" data-brush="thin" data-w="700" data-h="90" data-seed="21"></div>
   <div class="wrap hero-text">
     <div class="eyebrow">體制內改革者</div>
-    <h1 class="name">余霖</h1>
+    <h1 class="name">余霖<span class="en">Yu, Lin</span></h1>
     <div class="title">臺北市政府教育局　聘任督學</div>
+    <div class="motto">跨域整合　<i></i>　典範轉移</div>
     <p class="tagline">
       <span>前臺北市立大直高中校長</span>　<span>前臺北市立天母國中校長</span><br>
       <span>木鐸獎・教學卓越金質獎・高中校長領導卓越獎</span>
     </p>
     <div class="hero-actions">
       <a class="btn solid" href="#current">認識余霖</a>
-      <button class="btn" type="button" data-share>分享名片</button>
+      <a class="btn" href="#contact">聯絡方式</a>
     </div>
   </div>
   <div class="scroll-cue">向下</div>
@@ -213,7 +223,7 @@ footer .brush-foot{position:absolute;right:-10%;top:4%;width:min(560px,80vw);opa
     <li><a href="#honours">榮譽</a></li>
     <li><a href="#career">學經歷</a></li>
     <li><a href="#domains">專業貢獻</a></li>
-    <li><a href="#contact">名片</a></li>
+    <li><a href="#contact">聯絡</a></li>
   </ul>
 </nav>
 
@@ -266,11 +276,16 @@ footer .brush-foot{position:absolute;right:-10%;top:4%;width:min(560px,80vw);opa
   <div class="wrap">
     <div class="card">
       <div>
-        <h3>余霖</h3>
+        <h3>余霖 <small style="font-size:.42em;letter-spacing:.06em;color:var(--ink-2)">Yu, Lin</small></h3>
         <p>臺北市政府教育局　聘任督學</p>
-        <p class="quote">學校行政・教育改革・入學制度<br>數學教育・實驗教育・校長培育</p>
+        <p class="quote">跨域整合・典範轉移</p>
+        <div class="contact">
+          <a href="tel:+886966162649"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>手機　0966-162-649</a>
+          <a href="mailto:jeusdd@gmail.com"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>jeusdd@gmail.com</a>
+        </div>
         <div class="foot-actions">
-          <button class="btn solid" type="button" data-share>分享這張名片</button>
+          <button class="btn solid" type="button" id="saveContact">存入通訊錄</button>
+          <button class="btn" type="button" data-share>分享名片</button>
           <button class="btn" type="button" id="copyLink">複製連結</button>
         </div>
       </div>
@@ -487,6 +502,12 @@ document.querySelectorAll('[data-share]').forEach(b=>b.addEventListener('click',
   else copy();
 }));
 $('#copyLink').addEventListener('click',copy);
+$('#saveContact').addEventListener('click',()=>{
+  const v=['BEGIN:VCARD','VERSION:3.0','N:余;霖;;;','FN:余霖','ORG:臺北市政府教育局','TITLE:聘任督學','TEL;TYPE=CELL:+886966162649','EMAIL;TYPE=INTERNET:jeusdd@gmail.com','URL:'+URL_SELF,'NOTE:體制內改革者｜跨域整合・典範轉移','END:VCARD'].join('\r\n');
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([v],{type:'text/vcard;charset=utf-8'}));
+  a.download='余霖.vcf'; document.body.appendChild(a); a.click(); a.remove();
+});
 try{ new QRCode($('#qrbox'),{text:URL_SELF,width:300,height:300,colorDark:'#2a2116',colorLight:'#fffaf0',correctLevel:QRCode.CorrectLevel.M}); }catch(e){}
 </script>
 </body>
